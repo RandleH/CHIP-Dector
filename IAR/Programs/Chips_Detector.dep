@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <fileVersion>4</fileVersion>
+    <fileChecksum>3501642748</fileChecksum>
+    <configuration>
+        <name>Debug</name>
+        <outputs>
+            <file>$PROJ_DIR$\..\..\Libraries\Devices\inc\LED.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\startup\DeviceSupport\MK60D10.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\startup\CoreSupport\core_cm4.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Devices\inc\key_board.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Drivers\Display.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Drivers\SystickDelay.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Devices\src\LCD1602.c</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Devices\inc\LCD1602.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Drivers\IC_Test.c</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Drivers\SystickDelay.c</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Devices\src\LED.c</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Drivers\common.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Drivers\CHIPs_Lib.c</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Drivers\Display.c</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Drivers\IC_Test.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Devices\src\key_board.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\key_board.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\isr.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Num_Convert.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_MK60D10.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\isr.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\SystickDelay.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\Display.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\LED.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdbool.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdarg.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\CHIPs_Lib.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Chips_Detector.pbd</file>
+            <file>$PROJ_DIR$\..\..\Users\isr.c</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Tools\src\Num_Convert.c</file>
+            <file>$PROJ_DIR$\..\..\Users\headfiles.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Tools\inc\bit.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\KEY.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\LCD1602.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_MK60D10.__cstat.et</file>
+            <file>$PROJ_DIR$\..\..\Users\main.c</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdint.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\CHIPs_Lib.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\ysizet.h</file>
+            <file>$TOOLKIT_DIR$\config\linker\NXP\MK60xN512_10.icf</file>
+            <file>$TOOLKIT_DIR$\lib\rt7M_tl.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\CHIPs_Lib.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\isr.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\stdio.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\startup\CoreSupport\core_cmFunc.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\startup\CoreSupport\core_cm4_simd.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\startup\CoreSupport\core_cmInstr.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\startup\DeviceSupport\system_MK60D10.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\system_MK60D10.pbi</file>
+            <file>$PROJ_DIR$\..\..\Libraries\startup\DeviceSupport\IAR-ARM\startup_MK60D10.s</file>
+            <file>$PROJ_DIR$\..\..\Libraries\startup\DeviceSupport\system_MK60D10.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Tools\inc\Num_Convert.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\LCD1602.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Config_Full.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\KEY.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Defaults.h</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Drivers\CHIPs_Lib.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\key_board.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\KEY.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\ycheck.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Display.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+            <file>$PROJ_DIR$\Debug\Obj\Num_Convert.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\cmsis_iar.h</file>
+            <file>$TOOLKIT_DIR$\inc\c\iccarm_builtin.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\Num_Convert.pbi</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Devices\inc\KEY.h</file>
+            <file>$TOOLKIT_DIR$\lib\m7M_tl.a</file>
+            <file>$PROJ_DIR$\..\..\Libraries\Devices\src\KEY.c</file>
+            <file>$PROJ_DIR$\Debug\Obj\IC_Test.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\c\yvals.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\startup_MK60D10.o</file>
+            <file>$TOOLKIT_DIR$\lib\dl7M_tlf.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\key_board.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\SystickDelay.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\Display.o</file>
+            <file>$TOOLKIT_DIR$\lib\shb_l.a</file>
+            <file>$PROJ_DIR$\Debug\Obj\IC_Test.o</file>
+            <file>$TOOLKIT_DIR$\inc\c\DLib_Product.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\LED.__cstat.et</file>
+            <file>$PROJ_DIR$\Debug\Obj\IC_Test.pbi</file>
+            <file>$PROJ_DIR$\..\..\Users\isr.h</file>
+            <file>$PROJ_DIR$\Debug\Obj\LED.o</file>
+            <file>$PROJ_DIR$\Debug\List\Chips_Detector.map</file>
+            <file>$PROJ_DIR$\Debug\Exe\Chips_Detector.out</file>
+            <file>$PROJ_DIR$\Debug\Obj\SystickDelay.pbi</file>
+            <file>$PROJ_DIR$\Debug\Obj\LCD1602.__cstat.et</file>
+        </outputs>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 86 85</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\Devices\src\LCD1602.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 54</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 88</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 34</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 7 31 5 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11 24 14 53 4 32 0 3 45 40</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 61 55 31 45 57 72 26 7 80 40</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\Drivers\IC_Test.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 79</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 71</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 82</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 14 31 5 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11 24 53 4 7 32 0 3 58</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 11 31 53 14 52 5 0 72 1 32 37 58 24 4 7 3 2 46 61 48 47 57 55 80 65 66</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\Drivers\SystickDelay.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 21</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 76</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 87</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 5 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 61 48 80 37 11 2 47 55 65 1 52 46 72 57 66 5</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\Devices\src\LED.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 84</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 81</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 23</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 0 31 5 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11 24 14 53 4 7 32 3</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 11 72 31 52 37 7 80 53 24 4 3 47 5 1 14 32 0 2 48 57 55 65 66 46 61</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\Drivers\CHIPs_Lib.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 38</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 27</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 43</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 58 11</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 58 11</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\Drivers\Display.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 77</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 62</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 22</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 4 7 31 5 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11 24 14 53 32 0 3 58</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 7 11 58 31 4</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\Devices\src\key_board.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 59</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 75</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 16</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 3 31 5 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11 24 14 53 4 7 32 0</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 0 5 14 46 31 1 32 2 61 7 24 11 4 3 52 37 72 48 47 57 55 80 65 66 53</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Users\isr.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 44</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 17</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 20</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 83 31 5 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11 24 14 53 4 7 32 0 3</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 14 80 53 5 0 72 37 31 1 32 2 47 24 11 4 7 3 52 48 57 55 65 66 83 46 61</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\Tools\src\Num_Convert.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 18</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 64</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 67</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 53 31 5 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11 24 14 4 7 32 0 3</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 2 1 72 37 32 80 53 31 5 14 0 47 24 11 4 7 3 52 48 57 55 65 66 46 61</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Users\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 63</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 39</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 25</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 31 5 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11 24 14 53 4 7 32 0 3 58</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 4 72 31 24 3 7 11 52 37 58 5 1 14 32 0 2 46 61 48 47 57 55 80 65 66 53</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\startup\DeviceSupport\system_MK60D10.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 19</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 35</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 50</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 37 61 72 57 55 80 1 2 48 65 66 46 47 52 11</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 2 47 66 72 37 11 61 48 1 57 55 80 52 46 65</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\startup\DeviceSupport\IAR-ARM\startup_MK60D10.s</name>
+            <outputs>
+                <tool>
+                    <name>AARM</name>
+                    <file> 73</file>
+                </tool>
+            </outputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Libraries\Devices\src\KEY.c</name>
+            <outputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 60</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 56</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 33</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICCARM</name>
+                    <file> 68 31 1 2 37 61 72 57 55 80 48 65 66 46 47 52 11 5 14 53 7 0</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 80 14 72 37 31 11 0 2 47 1 5 7 68 52 48 57 55 65 66 53 46 61</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\Debug\Exe\Chips_Detector.out</name>
+            <outputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 85</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ILINK</name>
+                    <file> 41 38 77 79 44 59 54 84 63 18 73 19 21 78 42 69 74</file>
+                </tool>
+            </inputs>
+        </file>
+    </configuration>
+    <configuration>
+        <name>Release</name>
+        <outputs />
+        <forcedrebuild>
+            <name>[MULTI_TOOL]</name>
+            <tool>ILINK</tool>
+        </forcedrebuild>
+    </configuration>
+</project>
