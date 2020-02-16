@@ -1,30 +1,31 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.32.1.169/W32 for ARM                  17/Dec/2019  12:16:54
+# IAR ELF Linker V8.32.1.169/W32 for ARM                  15/Feb/2020  23:01:12
 # Copyright 2007-2018 IAR Systems AB.
 #
 #    Output file  =  
-#        C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Exe\Chips_Detector.out
+#        C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Exe\Chips_Detector.out
 #    Map file     =  
-#        C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\List\Chips_Detector.map
+#        C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\List\Chips_Detector.map
 #    Command line =  
-#        -f C:\Users\asus\AppData\Local\Temp\EWFC76.tmp
-#        ("C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\CHIPs_Lib.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\Display.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\IC_Test.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\isr.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\key_board.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\LCD1602.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\LED.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\main.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\Num_Convert.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\startup_MK60D10.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\system_MK60D10.o"
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj\SystickDelay.o"
+#        -f C:\Users\asus\AppData\Local\Temp\EW6CB5.tmp
+#        ("C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\CHIPs_Lib.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\debug.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\IC_Test.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\information.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\isr.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\key_board.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\LCD1602.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\LED.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\main.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\Num_Convert.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\startup_MK60D10.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\system_MK60D10.o"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj\SystickDelay.o"
 #        --no_out_extension -o
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Exe\Chips_Detector.out"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Exe\Chips_Detector.out"
 #        --map
-#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\List\Chips_Detector.map"
+#        "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\List\Chips_Detector.map"
 #        --config "C:\Program Files (x86)\IAR Systems\Embedded Workbench
 #        8.2\arm\config\linker\NXP\MK60xN512_10.icf" --semihosting --entry
 #        __iar_program_start --vfe --text_out locale)
@@ -35,19 +36,22 @@
 *** RUNTIME MODEL ATTRIBUTES
 ***
 
-CppFlavor       = *
-__SystemLibrary = DLib
-__dlib_version  = 6
+CppFlavor                     = *
+__CPP_Exceptions              = Disabled
+__CPP_Language                = C++14
+__Heap_Handler                = DLMalloc
+__SystemLibrary               = DLib
+__dlib_dynamic_initialization = normal
+__dlib_version                = 6
 
 
 *******************************************************************************
 *** HEAP SELECTION
 ***
 
-The basic heap was selected because no calls to memory allocation
-functions were found in the application outside of system library
-functions, and there are calls to deallocation functions in the
-application.
+The advanced heap was selected because the application calls memory
+allocation functions outside of system library functions, and there
+are calls to deallocation functions in the application.
 
 
 *******************************************************************************
@@ -68,237 +72,353 @@ No sections matched the following patterns:
   section FlashConfig  in "P1"
 
 
-  Section            Kind         Address    Size  Object
-  -------            ----         -------    ----  ------
-"A0":                                       0x410
-  .intvec            ro code          0x0   0x410  startup_MK60D10.o [1]
-                                  - 0x410   0x410
+  Section                Kind         Address    Size  Object
+  -------                ----         -------    ----  ------
+"A0":                                           0x410
+  .intvec                ro code          0x0   0x410  startup_MK60D10.o [1]
+                                      - 0x410   0x410
 
-"P2":                                      0x33f8
-  .text              ro code        0x410   0xdf2  xprintffull_nomb.o [2]
-  .text              ro code       0x1202    0x3a  zero_init3.o [4]
-  .text              ro code       0x123c    0x16  strchr.o [4]
-  .text              ro code       0x1252     0xa  xsprout.o [2]
-  .text              ro code       0x125c    0x40  xfail_s.o [2]
-  .text              ro code       0x129c    0x36  strlen.o [4]
-  .text              ro code       0x12d4    0x58  memchr.o [4]
-  .text              ro code       0x132c   0x230  I64DivMod.o [4]
-  .text              ro code       0x155c   0x1a2  DblMul.o [3]
-  .text              ro code       0x1700    0xa6  ABImemcpy.o [4]
-  .text              ro code       0x17a8    0x70  frexp.o [3]
-  .text              ro code       0x1818    0x2e  DblCmpLe.o [3]
-  .text              ro code       0x1848    0x2e  DblCmpGe.o [3]
-  .text              ro code       0x1878   0x13a  ldexp.o [3]
-  .text              ro code       0x19b4    0x3a  DblToS32.o [3]
-  .text              ro code       0x19f0    0x22  S32ToDbl.o [3]
-  .text              ro code       0x1a14    0xe2  DblSub.o [3]
-  .text              ro code       0x1af8   0x246  DblDiv.o [3]
-  .text              ro code       0x1d40    0x28  DblToU32.o [3]
-  .text              ro code       0x1d68    0x1a  U32ToDbl.o [3]
-  .text              ro code       0x1d84     0x8  xlocale_c.o [2]
-  .text              ro code       0x1d8c     0x6  abort.o [2]
-  .text              ro code       0x1d94     0x2  I64DivZer.o [4]
-  .text              ro code       0x1d98   0x16a  DblAdd.o [3]
-  .text              ro code       0x1f04    0x14  exit.o [5]
-  .text              ro code       0x1f18   0x670  IC_Test.o [1]
-  .text              ro code       0x2588   0x274  Display.o [1]
-  .text              ro code       0x27fc    0x50  SystickDelay.o [1]
-  .text              ro code       0x284c   0x34c  LCD1602.o [1]
-  .text              ro code       0x2b98    0x34  vsprintf.o [2]
-  .text              ro code       0x2bcc   0x304  key_board.o [1]
-  .text              ro code       0x2ed0   0x15c  isr.o [1]
-  .text              ro code       0x302c   0x120  main.o [1]
-  .text              ro code       0x314c    0x70  LED.o [1]
-  .text              ro code       0x31bc    0xda  system_MK60D10.o [1]
-  .rodata            const         0x3298    0x78  CHIPs_Lib.o [1]
-  .rodata            const         0x3310    0x78  CHIPs_Lib.o [1]
-  .rodata            const         0x3388    0x40  Display.o [1]
-  .text              ro code       0x33c8    0x2c  copy_init3.o [4]
-  .text              ro code       0x33f4    0x28  data_init.o [4]
-  .iar.init_table    const         0x341c    0x24  - Linker created -
-  .text              ro code       0x3440    0x1e  cmain.o [4]
-  .text              ro code       0x345e     0x4  low_level_init.o [2]
-  .text              ro code       0x3462     0x4  exit.o [2]
-  .text              ro code       0x3468     0xa  cexit.o [4]
-  .rodata            const         0x3474    0x18  main.o [1]
-  .rodata            const         0x348c    0x18  main.o [1]
-  .rodata            const         0x34a4    0x10  Display.o [1]
-  .rodata            const         0x34b4    0x10  Display.o [1]
-  .rodata            const         0x34c4    0x10  IC_Test.o [1]
-  .rodata            const         0x34d4    0x10  IC_Test.o [1]
-  .text              ro code       0x34e4    0x10  startup_MK60D10.o [1]
-  .rodata            const         0x34f4     0xc  Display.o [1]
-  .rodata            const         0x3500     0xc  Display.o [1]
-  .rodata            const         0x350c     0xc  Display.o [1]
-  .rodata            const         0x3518     0xc  Display.o [1]
-  .rodata            const         0x3524     0xc  Display.o [1]
-  .rodata            const         0x3530     0xc  Display.o [1]
-  .rodata            const         0x353c     0xc  IC_Test.o [1]
-  .rodata            const         0x3548     0xc  IC_Test.o [1]
-  .rodata            const         0x3554     0xc  IC_Test.o [1]
-  .rodata            const         0x3560     0xc  IC_Test.o [1]
-  .rodata            const         0x356c     0xc  IC_Test.o [1]
-  .rodata            const         0x3578     0xc  IC_Test.o [1]
-  .rodata            const         0x3584     0xc  IC_Test.o [1]
-  .rodata            const         0x3590     0xc  IC_Test.o [1]
-  .text              ro code       0x359c     0xc  cstartup_M.o [4]
-  .rodata            const         0x35a8     0x8  Display.o [1]
-  .rodata            const         0x35b0     0x8  Display.o [1]
-  .rodata            const         0x35b8     0x8  Display.o [1]
-  .rodata            const         0x35c0     0x8  Display.o [1]
-  .rodata            const         0x35c8     0x8  Display.o [1]
-  .rodata            const         0x35d0     0x8  Display.o [1]
-  .rodata            const         0x35d8     0x8  IC_Test.o [1]
-  .rodata            const         0x35e0     0x8  IC_Test.o [1]
-  .rodata            const         0x35e8     0x8  IC_Test.o [1]
-  .rodata            const         0x35f0     0x8  IC_Test.o [1]
-  .rodata            const         0x35f8     0x8  IC_Test.o [1]
-  .rodata            const         0x3600     0x4  xlocale_c.o [2]
-  .text              ro code       0x3604     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3608     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x360c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3610     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3614     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3618     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x361c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3620     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3624     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3628     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x362c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3630     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3634     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3638     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x363c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3640     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3644     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3648     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x364c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3650     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3654     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3658     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x365c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3660     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3664     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3668     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x366c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3670     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3674     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3678     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x367c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3680     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3684     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3688     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x368c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3690     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3694     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3698     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x369c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36a0     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36a4     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36a8     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36ac     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36b0     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36b4     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36b8     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36bc     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36c0     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36c4     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36c8     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36cc     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36d0     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36d4     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36d8     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36dc     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36e0     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36e4     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36e8     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36ec     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36f0     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36f4     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36f8     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x36fc     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3700     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3704     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3708     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x370c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3710     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3714     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3718     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x371c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3720     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3724     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3728     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x372c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3730     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3734     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3738     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x373c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3740     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3744     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3748     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x374c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3750     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3754     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3758     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x375c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3760     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3764     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3768     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x376c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3770     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3774     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3778     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x377c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3780     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3784     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3788     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x378c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3790     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3794     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x3798     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x379c     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x37a0     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x37a4     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x37a8     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x37ac     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x37b0     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x37b4     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x37b8     0x4  startup_MK60D10.o [1]
-  .text              ro code       0x37bc     0x4  startup_MK60D10.o [1]
-  .rodata            const         0x37c0     0x0  zero_init3.o [4]
-  .rodata            const         0x37c0     0x0  copy_init3.o [4]
-  Initializer bytes  const         0x37c0    0x48  <for P3 s0>
-                                 - 0x3808  0x33f8
+"P2":                                          0x4864
+  .text                  ro code        0x410  0x14e0  dlmalloc.o [2]
+  .text                  ro code       0x18f0     0x6  abort.o [2]
+  .text                  ro code       0x18f6    0x3a  zero_init3.o [5]
+  .text                  ro code       0x1930    0x2c  xgetmemchunk.o [2]
+  .text                  ro code       0x195c    0x14  exit.o [6]
+  .text                  ro code       0x1970   0xe38  IC_Test.o [1]
+  .text                  ro code       0x27a8     0xa  cxxabi.o [3]
+  .rodata                const         0x27b2     0x1  information.o [1]
+  .rodata                const         0x27b3     0x1  unwind_debug.o [6]
+  .text                  ro code       0x27b4    0x50  SystickDelay.o [1]
+  .text                  ro code       0x2804   0x2ea  information.o [1]
+  .text                  ro code       0x2af0   0x350  LCD1602.o [1]
+  .text                  ro code       0x2e40    0x1a  IC_Test.o [1]
+  .text                  ro code       0x2e5a    0x24  information.o [1]
+  .text                  ro code       0x2e7e    0x14  IC_Test.o [1]
+  .text                  ro code       0x2e92     0xc  IC_Test.o [1]
+  .text                  ro code       0x2e9e     0xe  information.o [1]
+  .text                  ro code       0x2eac   0x2b0  key_board.o [1]
+  .text                  ro code       0x315c    0x20  IC_Test.o [1]
+  .text                  ro code       0x317c    0x16  IC_Test.o [1]
+  .text                  ro code       0x3192    0x2c  IC_Test.o [1]
+  .text                  ro code       0x31be    0x16  IC_Test.o [1]
+  .text                  ro code       0x31d4    0x3c  IC_Test.o [1]
+  .text                  ro code       0x3210    0x24  IC_Test.o [1]
+  .text                  ro code       0x3234    0x7e  IC_Test.o [1]
+  .text                  ro code       0x32b2    0x12  information.o [1]
+  .text                  ro code       0x32c4    0x66  ABImemset.o [5]
+  .text                  ro code       0x332a     0x8  CHIPs_Lib.o [1]
+  .text                  ro code       0x3334    0x70  LED.o [1]
+  .text                  ro code       0x33a4    0xa0  cppinit.o [2]
+  .text                  ro code       0x3444    0x20  information.o [1]
+  .text                  ro code       0x3464     0xc  information.o [1]
+  .text                  ro code       0x3470    0x84  information.o [1]
+  .text                  ro code       0x34f4    0x18  information.o [1]
+  .text                  ro code       0x350c    0x92  IC_Test.o [1]
+  .text                  ro code       0x359e    0x10  information.o [1]
+  .text                  ro code       0x35ae     0xe  information.o [1]
+  .text                  ro code       0x35bc     0xc  information.o [1]
+  .text                  ro code       0x35c8    0x10  IC_Test.o [1]
+  .text                  ro code       0x35d8    0x16  IC_Test.o [1]
+  .text                  ro code       0x35ee    0x12  IC_Test.o [1]
+  .text                  ro code       0x3600     0xe  information.o [1]
+  .text                  ro code       0x360e    0x10  IC_Test.o [1]
+  .text                  ro code       0x361e    0x16  IC_Test.o [1]
+  .text                  ro code       0x3634    0xe8  IC_Test.o [1]
+  .text                  ro code       0x371c    0x16  IC_Test.o [1]
+  .text                  ro code       0x3732    0x34  IC_Test.o [1]
+  .text                  ro code       0x3766     0xc  information.o [1]
+  .text                  ro code       0x3772    0x1c  IC_Test.o [1]
+  .text                  ro code       0x378e    0x14  IC_Test.o [1]
+  .text                  ro code       0x37a2    0x26  IC_Test.o [1]
+  .text                  ro code       0x37c8     0x2  IC_Test.o [1]
+  .text                  ro code       0x37ca    0x8c  IC_Test.o [1]
+  .text                  ro code       0x3856    0x10  information.o [1]
+  .text                  ro code       0x3868    0x1c  information.o [1]
+  .text                  ro code       0x3884     0xe  information.o [1]
+  .text                  ro code       0x3892     0xc  information.o [1]
+  .text                  ro code       0x389e    0x10  information.o [1]
+  .text                  ro code       0x38ae     0xc  information.o [1]
+  .text                  ro code       0x38ba    0x28  information.o [1]
+  .text                  ro code       0x38e2    0x14  information.o [1]
+  .text                  ro code       0x38f6    0x28  information.o [1]
+  .text                  ro code       0x391e    0x18  information.o [1]
+  .text                  ro code       0x3936    0x52  information.o [1]
+  .text                  ro code       0x3988    0x28  IC_Test.o [1]
+  .text                  ro code       0x39b0    0x1c  IC_Test.o [1]
+  .text                  ro code       0x39cc     0xc  information.o [1]
+  .text                  ro code       0x39d8    0x16  information.o [1]
+  .text                  ro code       0x39ee     0x2  information.o [1]
+  .text                  ro code       0x39f0    0x16  IC_Test.o [1]
+  .text                  ro code       0x3a06     0xc  IC_Test.o [1]
+  .text                  ro code       0x3a12     0x8  IC_Test.o [1]
+  .text                  ro code       0x3a1a     0x2  IC_Test.o [1]
+  .text                  ro code       0x3a1c    0x28  information.o [1]
+  .text                  ro code       0x3a44    0x7c  information.o [1]
+  .text                  ro code       0x3ac0    0x30  IC_Test.o [1]
+  .text                  ro code       0x3af0     0xc  information.o [1]
+  .text                  ro code       0x3afc     0x2  IC_Test.o [1]
+  .text                  ro code       0x3afe    0x7a  information.o [1]
+  .text                  ro code       0x3b78     0x2  information.o [1]
+  .text                  ro code       0x3b7a    0x10  IC_Test.o [1]
+  .text                  ro code       0x3b8a    0x12  IC_Test.o [1]
+  .text                  ro code       0x3b9c    0x78  IC_Test.o [1]
+  .text                  ro code       0x3c14    0x1a  IC_Test.o [1]
+  .text                  ro code       0x3c2e    0x16  information.o [1]
+  .text                  ro code       0x3c44    0x1e  information.o [1]
+  .text                  ro code       0x3c62    0x10  information.o [1]
+  .text                  ro code       0x3c72     0x2  information.o [1]
+  .text                  ro code       0x3c74    0xa6  ABImemcpy.o [5]
+  .text                  ro code       0x3d1a    0x12  information.o [1]
+  .text                  ro code       0x3d2c     0x6  information.o [1]
+  .text                  ro code       0x3d34    0x36  strlen.o [5]
+  .text                  ro code       0x3d6a    0x32  information.o [1]
+  .text                  ro code       0x3d9c    0x58  memchr.o [5]
+  .text                  ro code       0x3df4    0x68  memcmp.o [5]
+  .text                  ro code       0x3e5c     0x2  information.o [1]
+  .text                  ro code       0x3e5e     0xc  IC_Test.o [1]
+  .text                  ro code       0x3e6a    0x16  IC_Test.o [1]
+  .text                  ro code       0x3e80    0x96  ABImemmove.o [5]
+  .text                  ro code       0x3f16    0x1c  information.o [1]
+  .text                  ro code       0x3f32    0xdc  information.o [1]
+  .text                  ro code       0x400e    0x24  IC_Test.o [1]
+  .text                  ro code       0x4032     0x2  information.o [1]
+  .text                  ro code       0x4034    0x22  information.o [1]
+  .text                  ro code       0x4056    0x6a  information.o [1]
+  .text                  ro code       0x40c0     0x4  IC_Test.o [1]
+  .text                  ro code       0x40c4    0x16  IC_Test.o [1]
+  .text                  ro code       0x40da    0x32  IC_Test.o [1]
+  .text                  ro code       0x410c    0x10  IC_Test.o [1]
+  .text                  ro code       0x411c     0xc  IC_Test.o [1]
+  .text                  ro code       0x4128   0x116  IC_Test.o [1]
+  .text                  ro code       0x423e     0x2  IC_Test.o [1]
+  .text                  ro code       0x4240    0x1a  IC_Test.o [1]
+  .text                  ro code       0x425a     0x2  information.o [1]
+  .text                  ro code       0x425c     0xc  information.o [1]
+  .text                  ro code       0x4268     0xa  information.o [1]
+  .text                  ro code       0x4272     0x2  information.o [1]
+  .text                  ro code       0x4274     0xe  information.o [1]
+  .text                  ro code       0x4282     0x2  IC_Test.o [1]
+  .text                  ro code       0x4284     0xc  information.o [1]
+  .text                  ro code       0x4290    0x10  information.o [1]
+  .text                  ro code       0x42a0     0x2  information.o [1]
+  .text                  ro code       0x42a2    0x1a  information.o [1]
+  .text                  ro code       0x42bc     0x2  IC_Test.o [1]
+  .text                  ro code       0x42be    0x12  IC_Test.o [1]
+  .text                  ro code       0x42d0     0x6  IC_Test.o [1]
+  .text                  ro code       0x42d6     0x4  IC_Test.o [1]
+  .text                  ro code       0x42da   0x212  IC_Test.o [1]
+  .text                  ro code       0x44ec    0x26  IC_Test.o [1]
+  .text                  ro code       0x4512     0x2  information.o [1]
+  .text                  ro code       0x4514     0xa  delop_0.o [3]
+  .text                  ro code       0x451e     0xc  information.o [1]
+  .text                  ro code       0x452a    0x12  information.o [1]
+  .text                  ro code       0x453c     0x2  information.o [1]
+  .text                  ro code       0x453e    0x1a  information.o [1]
+  .text                  ro code       0x4558     0x2  IC_Test.o [1]
+  .text                  ro code       0x455a     0x4  information.o [1]
+  .text                  ro code       0x455e     0x4  heaptramp0.o [2]
+  .text                  ro code       0x4562     0x8  information.o [1]
+  .text                  ro code       0x456a    0x1a  information.o [1]
+  .text                  ro code       0x4584    0x26  information.o [1]
+  .text                  ro code       0x45ac    0x24  newop_0.o [3]
+  .text                  ro code       0x45d0     0x4  nomemory.o [3]
+  .text                  ro code       0x45d4    0xda  system_MK60D10.o [1]
+  .rodata                const         0x46b0    0x90  CHIPs_Lib.o [1]
+  .rodata                const         0x4740    0x90  CHIPs_Lib.o [1]
+  .text                  ro code       0x47d0    0x4c  isr.o [1]
+  .text                  ro code       0x481c    0x44  main.o [1]
+  .rodata                const         0x4860    0x40  LCD1602.o [1]
+  .text                  ro code       0x48a0    0x2c  copy_init3.o [5]
+  .text                  ro code       0x48cc    0x28  data_init.o [5]
+  .iar.init_table        const         0x48f4    0x28  - Linker created -
+  .text                  ro code       0x491c    0x20  cmain_call_ctors.o [5]
+  .text                  ro code       0x493c    0x1e  cmain.o [5]
+  .text                  ro code       0x495a     0x4  low_level_init.o [2]
+  .text                  ro code       0x495e     0x4  exit.o [2]
+  .text                  ro code       0x4964     0xe  cexit.o [5]
+  .rodata                const         0x4974    0x14  CHIPs_Lib.o [1]
+  .rodata                const         0x4988    0x14  IC_Test.o [1]
+  .rodata                const         0x499c    0x10  CHIPs_Lib.o [1]
+  .rodata                const         0x49ac    0x10  IC_Test.o [1]
+  .rodata                const         0x49bc    0x10  IC_Test.o [1]
+  .text                  ro code       0x49cc    0x10  startup_MK60D10.o [1]
+  .rodata                const         0x49dc     0xc  IC_Test.o [1]
+  .rodata                const         0x49e8     0xc  IC_Test.o [1]
+  .rodata                const         0x49f4     0xc  information.o [1]
+  .rodata                const         0x4a00     0xc  information.o [1]
+  .rodata                const         0x4a0c     0xc  information.o [1]
+  .rodata                const         0x4a18     0xc  information.o [1]
+  .rodata                const         0x4a24     0xc  information.o [1]
+  .rodata                const         0x4a30     0xc  information.o [1]
+  .rodata                const         0x4a3c     0xc  information.o [1]
+  .text                  ro code       0x4a48     0xc  cstartup_M.o [5]
+  .rodata                const         0x4a54     0x8  IC_Test.o [1]
+  .rodata                const         0x4a5c     0x8  information.o [1]
+  .rodata                const         0x4a64     0x8  information.o [1]
+  .rodata                const         0x4a6c     0x8  information.o [1]
+  .rodata                const         0x4a74     0x8  information.o [1]
+  .rodata                const         0x4a7c     0x8  information.o [1]
+  .rodata                const         0x4a84     0x8  information.o [1]
+  .rodata                const         0x4a8c     0x8  information.o [1]
+  .rodata                const         0x4a94     0x8  information.o [1]
+  .rodata                const         0x4a9c     0x8  information.o [1]
+  .rodata                const         0x4aa4     0x8  information.o [1]
+  SHT$$PREINIT_ARRAY                   0x4aac     0x0  <Block>
+  SHT$$INIT_ARRAY                      0x4aac     0x8  <Block>
+    .init_array          const         0x4aac     0x4  IC_Test.o [1]
+    .init_array          const         0x4ab0     0x4  main.o [1]
+  __iar_tls$$INIT_ARRAY                0x4ab4     0x0  <Block>
+  .text                  ro code       0x4ab4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ab8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4abc     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ac0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ac4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ac8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4acc     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ad0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ad4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ad8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4adc     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ae0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ae4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ae8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4aec     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4af0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4af4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4af8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4afc     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b00     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b04     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b08     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b0c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b10     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b14     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b18     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b1c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b20     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b24     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b28     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b2c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b30     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b34     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b38     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b3c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b40     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b44     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b48     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b4c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b50     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b54     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b58     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b5c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b60     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b64     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b68     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b6c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b70     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b74     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b78     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b7c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b80     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b84     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b88     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b8c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b90     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b94     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b98     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4b9c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ba0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ba4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4ba8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bac     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bb0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bb4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bb8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bbc     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bc0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bc4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bc8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bcc     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bd0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bd4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bd8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bdc     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4be0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4be4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4be8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bec     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bf0     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bf4     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bf8     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4bfc     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c00     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c04     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c08     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c0c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c10     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c14     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c18     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c1c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c20     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c24     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c28     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c2c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c30     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c34     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c38     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c3c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c40     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c44     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c48     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c4c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c50     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c54     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c58     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c5c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c60     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c64     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c68     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c6c     0x4  startup_MK60D10.o [1]
+  .text                  ro code       0x4c70     0x0  cstart_call_dtors.o [5]
+  .rodata                const         0x4c70     0x0  zero_init3.o [5]
+  .rodata                const         0x4c70     0x0  copy_init3.o [5]
+  Initializer bytes      const         0x4c70     0x4  <for P3 s0>
+                                     - 0x4c74  0x4864
 
-"P3", part 1 of 3:                           0x48
-  P3 s0                       0x1fff'0000    0x48  <Init block>
-    .data            inited   0x1fff'0000    0x38  xlocale_c.o [2]
-    .data            inited   0x1fff'0038     0xc  CHIPs_Lib.o [1]
-    .data            inited   0x1fff'0044     0x4  SystickDelay.o [1]
-                            - 0x1fff'0048    0x48
+"P3", part 1 of 3:                                0x4
+  P3 s0                           0x1fff'0000     0x4  <Init block>
+    .data                inited   0x1fff'0000     0x4  SystickDelay.o [1]
+                                - 0x1fff'0004     0x4
 
-"P3", part 2 of 3:                           0x74
-  .bss               zero     0x1fff'0048    0x20  Display.o [1]
-  .bss               zero     0x1fff'0068    0x20  IC_Test.o [1]
-  .bss               zero     0x1fff'0088    0x20  LCD1602.o [1]
-  .bss               zero     0x1fff'00a8     0xc  key_board.o [1]
-  .bss               zero     0x1fff'00b4     0x4  xfail_s.o [2]
-  .bss               zero     0x1fff'00b8     0x1  IC_Test.o [1]
-  .bss               zero     0x1fff'00b9     0x1  IC_Test.o [1]
-                            - 0x1fff'00ba    0x72
+"P3", part 2 of 3:                              0x2c8
+  .bss                   zero     0x1fff'0004   0x1d8  dlmalloc.o [2]
+  .bss                   zero     0x1fff'01dc    0x9c  main.o [1]
+  .bss                   zero     0x1fff'0278    0x18  IC_Test.o [1]
+  .bss                   zero     0x1fff'0290    0x18  dlmalloc.o [2]
+  .bss                   zero     0x1fff'02a8    0x10  IC_Test.o [1]
+  .bss                   zero     0x1fff'02b8     0x4  cppinit.o [2]
+  .bss                   zero     0x1fff'02bc     0x4  cppinit.o [2]
+  .bss                   zero     0x1fff'02c0     0x4  new.o [3]
+  .bss                   zero     0x1fff'02c4     0x4  xgetmemchunk.o [2]
+  .bss                   zero     0x1fff'02c8     0x1  IC_Test.o [1]
+                                - 0x1fff'02c9   0x2c5
 
-"P3", part 3 of 3:                         0x2000
-  CSTACK                      0x1fff'00c0  0x2000  <Block>
-    CSTACK           uninit   0x1fff'00c0  0x2000  <Block tail>
-                            - 0x1fff'20c0  0x2000
+"P3", part 3 of 3:                             0x61a4
+  .iar.dynexit                    0x1fff'02cc   0x1a4  <Block>
+    .iar.dynexit         uninit   0x1fff'02cc     0xc  cppinit.o [2]
+    .iar.dynexit         uninit   0x1fff'02d8   0x198  <Block tail>
+  CSTACK                          0x1fff'0470  0x2000  <Block>
+    CSTACK               uninit   0x1fff'0470  0x2000  <Block tail>
+  HEAP                            0x1fff'2470  0x4000  <Block>
+    HEAP                 uninit   0x1fff'2470  0x4000  <Block tail>
+                                - 0x1fff'6470  0x61a4
 
 Unused ranges:
 
          From           To      Size
          ----           --      ----
-       0x3808     0x7'ffff  0x7'c7f8
-  0x1fff'00bc  0x1fff'00bf       0x4
-  0x1fff'20c0  0x1fff'ffff    0xdf40
+       0x4c74     0x7'ffff  0x7'b38c
+  0x1fff'6470  0x1fff'ffff    0x9b90
   0x2000'0000  0x2000'ffff  0x1'0000
 
 
@@ -309,14 +429,16 @@ Unused ranges:
           Address      Size
           -------      ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0x72:
-          0x1fff'0048  0x72
+    1 destination range, total size 0x2c5:
+          0x1fff'0004  0x2c5
 
 Copy (__iar_copy_init3)
-    1 source range, total size 0x48:
-               0x37c0  0x48
-    1 destination range, total size 0x48:
-          0x1fff'0000  0x48
+    1 source range, total size 0x4:
+               0x4c70    0x4
+    1 destination range, total size 0x4:
+          0x1fff'0000    0x4
+
+Extra (__iar_cstart_call_ctors)
 
 
 
@@ -324,80 +446,79 @@ Copy (__iar_copy_init3)
 *** MODULE SUMMARY
 ***
 
-    Module              ro code  ro data  rw data
-    ------              -------  -------  -------
+    Module               ro code  ro data  rw data
+    ------               -------  -------  -------
 command line/config:
-    ---------------------------------------------
+    ----------------------------------------------
     Total:
 
-C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj: [1]
-    CHIPs_Lib.o                      252       12
-    Display.o               628      216       32
-    IC_Test.o             1 648      168       34
-    LCD1602.o               844                32
-    LED.o                   112
-    SystickDelay.o           80        4        4
-    isr.o                   348
-    key_board.o             772                12
-    main.o                  288       48
-    startup_MK60D10.o     1 500
-    system_MK60D10.o        218
-    ---------------------------------------------
-    Total:                6 438      688      126
+C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj: [1]
+    CHIPs_Lib.o                8      324
+    IC_Test.o              6 238       88       41
+    LCD1602.o                848       64
+    LED.o                    112
+    SystickDelay.o            80        4        4
+    information.o          2 490      165
+    isr.o                     76
+    key_board.o              688
+    main.o                    68        4      156
+    startup_MK60D10.o      1 500
+    system_MK60D10.o         218
+    ----------------------------------------------
+    Total:                12 326      649      201
 
 dl7M_tlf.a: [2]
-    abort.o                   6
-    exit.o                    4
-    low_level_init.o          4
-    vsprintf.o               52
-    xfail_s.o                64                 4
-    xlocale_c.o               8       60       56
-    xprintffull_nomb.o    3 570
-    xsprout.o                10
-    ---------------------------------------------
-    Total:                3 718       60       60
+    abort.o                    6
+    cppinit.o                160                20
+    dlmalloc.o             5 344               496
+    exit.o                     4
+    heaptramp0.o               4
+    low_level_init.o           4
+    xgetmemchunk.o            44                 4
+    ----------------------------------------------
+    Total:                 5 566               520
 
-m7M_tl.a: [3]
-    DblAdd.o                362
-    DblCmpGe.o               46
-    DblCmpLe.o               46
-    DblDiv.o                582
-    DblMul.o                418
-    DblSub.o                226
-    DblToS32.o               58
-    DblToU32.o               40
-    S32ToDbl.o               34
-    U32ToDbl.o               26
-    frexp.o                 112
-    ldexp.o                 314
-    ---------------------------------------------
-    Total:                2 264
+dlpp7M_tl_fc.a: [3]
+    cxxabi.o                  10
+    delop_0.o                 10
+    new.o                                        4
+    newop_0.o                 36
+    nomemory.o                 4
+    ----------------------------------------------
+    Total:                    60                 4
 
-rt7M_tl.a: [4]
-    ABImemcpy.o             166
-    I64DivMod.o             560
-    I64DivZer.o               2
-    cexit.o                  10
-    cmain.o                  30
-    copy_init3.o             44
-    cstartup_M.o             12
-    data_init.o              40
-    memchr.o                 88
-    strchr.o                 22
-    strlen.o                 54
-    zero_init3.o             58
-    ---------------------------------------------
-    Total:                1 086
+m7M_tl.a: [4]
+    ----------------------------------------------
+    Total:
 
-shb_l.a: [5]
-    exit.o                   20
-    ---------------------------------------------
-    Total:                   20
+rt7M_tl.a: [5]
+    ABImemcpy.o              166
+    ABImemmove.o             150
+    ABImemset.o              102
+    cexit.o                   14
+    cmain.o                   30
+    cmain_call_ctors.o        32
+    copy_init3.o              44
+    cstart_call_dtors.o
+    cstartup_M.o              12
+    data_init.o               40
+    memchr.o                  88
+    memcmp.o                 104
+    strlen.o                  54
+    zero_init3.o              58
+    ----------------------------------------------
+    Total:                   894
 
-    Gaps                     30        4
-    Linker created                    36    8 192
--------------------------------------------------
-    Grand Total:         13 556      788    8 378
+shb_l.a: [6]
+    exit.o                    20
+    unwind_debug.o                      1
+    ----------------------------------------------
+    Total:                    20        1
+
+    Gaps                      12        4
+    Linker created                     40   24 984
+--------------------------------------------------
+    Grand Total:          18 878      694   25 709
 
 
 *******************************************************************************
@@ -406,144 +527,465 @@ shb_l.a: [5]
 
 Entry                       Address   Size  Type      Object
 -----                       -------   ----  ----      ------
-.iar.init_table$$Base        0x341c          --   Gb  - Linker created -
-.iar.init_table$$Limit       0x3440          --   Gb  - Linker created -
-?main                        0x3441         Code  Gb  cmain.o [4]
-AUTO_Test                    0x2037   0x2a  Code  Gb  IC_Test.o [1]
-CHIP_Edge                    0x3388   0x40  Data  Gb  Display.o [1]
-CHIP_Parameter          0x1fff'0068   0x20  Data  Gb  IC_Test.o [1]
-CSTACK$$Base            0x1fff'00c0          --   Gb  - Linker created -
-CSTACK$$Limit           0x1fff'20c0          --   Gb  - Linker created -
-CleanScreen                  0x2ad1   0x10  Code  Gb  LCD1602.o [1]
-DSP_ChipFig                  0x270d   0x92  Code  Gb  Display.o [1]
-DSP_Info_Init                0x2589   0x58  Code  Gb  Display.o [1]
-DSP_Info_Structure      0x1fff'0048   0x20  Data  Gb  Display.o [1]
-DSP_Information              0x25e1  0x12c  Code  Gb  Display.o [1]
-DectorLastState         0x1fff'00b9    0x1  Data  Gb  IC_Test.o [1]
-DectorState             0x1fff'00b8    0x1  Data  Gb  IC_Test.o [1]
-Dector_Init                  0x1f19  0x11e  Code  Gb  IC_Test.o [1]
-Disable_Wdog                 0x31bd   0x18  Code  Gb  system_MK60D10.o [1]
-GATE_ACKs                    0x3310   0x78  Data  Gb  CHIPs_Lib.o [1]
-GATE_ID                      0x2151   0xaa  Code  Lc  IC_Test.o [1]
-GATE_KEYs                    0x3298   0x78  Data  Gb  CHIPs_Lib.o [1]
-GATE_Test                    0x2201  0x1a6  Code  Lc  IC_Test.o [1]
-GET_Keyboard                 0x2d71  0x122  Code  Gb  key_board.o [1]
-ID2INDEX                     0x23a7   0xdc  Code  Gb  IC_Test.o [1]
-IO__GATE                0x1fff'0038    0xc  Data  Gb  CHIPs_Lib.o [1]
-KEYs_Init                    0x2c0f   0x42  Code  Gb  key_board.o [1]
-Keyboard_GetChar             0x2d03   0x6e  Code  Gb  key_board.o [1]
-LCD1602_Char                 0x2aa1   0x30  Code  Gb  LCD1602.o [1]
-LCD1602_CheckBusy            0x290d   0x40  Code  Gb  LCD1602.o [1]
-LCD1602_DefChar              0x2ae1   0x34  Code  Gb  LCD1602.o [1]
+$system$                0x1fff'02a8   0x10  Data  Gb  IC_Test.o [1]
+.iar.dynexit$$Base      0x1fff'02cc          --   Gb  - Linker created -
+.iar.dynexit$$Limit     0x1fff'0470          --   Gb  - Linker created -
+.iar.init_table$$Base        0x48f4          --   Gb  - Linker created -
+.iar.init_table$$Limit       0x491c          --   Gb  - Linker created -
+?main                        0x493d         Code  Gb  cmain.o [5]
+CHIP_Edge                    0x4860   0x40  Data  Lc  LCD1602.o [1]
+CSTACK$$Base            0x1fff'0470          --   Gb  - Linker created -
+CSTACK$$Limit           0x1fff'2470          --   Gb  - Linker created -
+CleanScreen                  0x2dd5   0x10  Code  Gb  LCD1602.o [1]
+Detector::Detector()         0x19d1   0x78  Code  Gb  IC_Test.o [1]
+Detector::analyzeName()
+                             0x1c55   0x32  Code  Gb  IC_Test.o [1]
+Detector::clearScreen()
+                             0x1e8f    0xa  Code  Gb  IC_Test.o [1]
+Detector::display(unsigned char, unsigned char, char const *)
+                             0x1dd9   0x2c  Code  Gb  IC_Test.o [1]
+Detector::displayFig()       0x1cfb   0x96  Code  Gb  IC_Test.o [1]
+Detector::displayName()
+                             0x1cab   0x1c  Code  Gb  IC_Test.o [1]
+Detector::displayText()
+                             0x1d91   0x48  Code  Gb  IC_Test.o [1]
+Detector::displayTitle()
+                             0x1c87   0x24  Code  Gb  IC_Test.o [1]
+Detector::displayType()
+                             0x1cc7   0x34  Code  Gb  IC_Test.o [1]
+Detector::init()             0x1a59  0x124  Code  Gb  IC_Test.o [1]
+Detector::led()              0x1e05   0x6c  Code  Gb  IC_Test.o [1]
+Detector::led(unsigned char)
+                             0x1e71   0x1e  Code  Gb  IC_Test.o [1]
+Detector::main()             0x1b81   0xd4  Code  Gb  IC_Test.o [1]
+Detector::scanfName()        0x1e99  0x1c0  Code  Gb  IC_Test.o [1]
+Detector::scanfName()::buffer
+                        0x1fff'0278   0x18  Data  Lc  IC_Test.o [1]
+Detector::scanfName()::static guard for buffer
+                        0x1fff'02c8    0x1  Data  Lc  IC_Test.o [1]
+Detector::~Detector()        0x1a49   0x10  Code  Gb  IC_Test.o [1]
+Disable_Wdog()               0x45d5   0x18  Code  Gb  system_MK60D10.o [1]
+DtorRecArray            0x1fff'02cc    0xc  Data  Lc  cppinit.o [2]
+GATE_ACKs                    0x4740   0x90  Data  Gb  CHIPs_Lib.o [1]
+GATE_BASEs                   0x4974   0x14  Data  Gb  CHIPs_Lib.o [1]
+GATE_KEYs                    0x46b0   0x90  Data  Gb  CHIPs_Lib.o [1]
+GET_Keyboard()               0x2ffd  0x122  Code  Gb  key_board.o [1]
+GET_TestKey()                0x2f31   0x1a  Code  Gb  key_board.o [1]
+HEAP$$Base              0x1fff'2470          --   Gb  - Linker created -
+HEAP$$Limit             0x1fff'6470          --   Gb  - Linker created -
+IO__GATE                     0x499c   0x10  Data  Gb  CHIPs_Lib.o [1]
+Info::Info()                 0x2805    0x2  Code  Gb  information.o [1]
+Info::get74XX___(char *)
+                             0x2add   0x12  Code  Gb  information.o [1]
+Info::toIndex(char *)        0x28f5   0x78  Code  Gb  information.o [1]
+Info::toName(unsigned short *)
+                             0x2a25   0x5a  Code  Gb  information.o [1]
+Info::toNum(char *, unsigned char)
+                             0x2891   0x64  Code  Gb  information.o [1]
+Info::toString(Type)         0x2809   0x84  Code  Gb  information.o [1]
+Info::toType(char *)         0x296d   0x6c  Code  Gb  information.o [1]
+Info::toType(unsigned short *)
+                             0x29d9   0x4c  Code  Gb  information.o [1]
+Info::~Info()                0x2807    0x2  Code  Gb  information.o [1]
+KEYs_Init()                  0x2eef   0x42  Code  Gb  key_board.o [1]
+LCD1602_Char                 0x2d6b   0x30  Code  Gb  LCD1602.o [1]
+LCD1602_CheckBusy            0x2bd5   0x40  Code  Gb  LCD1602.o [1]
+LCD1602_CleanLine            0x2d9b   0x3a  Code  Gb  LCD1602.o [1]
+LCD1602_DefChar              0x2de5   0x34  Code  Gb  LCD1602.o [1]
 LCD1602_GPIO_Configuration
-                             0x29b1   0xb4  Code  Gb  LCD1602.o [1]
-LCD1602_Init                 0x284d   0x5c  Code  Gb  LCD1602.o [1]
-LCD1602_Str                  0x2a65   0x3c  Code  Gb  LCD1602.o [1]
-LCD1602_WriteCmd             0x28a9   0x64  Code  Gb  LCD1602.o [1]
-LCD1602_WriteDat             0x294d   0x64  Code  Gb  LCD1602.o [1]
-LED_Init                     0x314d   0x70  Code  Gb  LED.o [1]
-LoadInt                       0x5bf   0x7a  Code  Lc  xprintffull_nomb.o [2]
-MANUAL_Test                  0x2061   0x34  Code  Gb  IC_Test.o [1]
-NMI_Handler                  0x3295    0x2  Code  Gb  system_MK60D10.o [1]
-NVIC_EnableIRQ               0x2bcd   0x16  Code  Lc  key_board.o [1]
-NVIC_SetPriority             0x2be3   0x2c  Code  Lc  key_board.o [1]
-PORTA_IRQHandler             0x2ed1   0x22  Code  Gb  isr.o [1]
-PORTE_IRQHandler             0x2ef3  0x114  Code  Gb  isr.o [1]
-Printf                       0x2b15   0x5a  Code  Gb  LCD1602.o [1]
-Region$$Table$$Base          0x341c          --   Gb  - Linker created -
-Region$$Table$$Limit         0x3440          --   Gb  - Linker created -
-SYSTEM_CLK                   0x31d5   0x8a  Code  Gb  system_MK60D10.o [1]
-Start                        0x3289    0xc  Code  Gb  system_MK60D10.o [1]
-System_Initialization        0x3101   0x30  Code  Gb  main.o [1]
-TEST_Direction               0x20bd   0x40  Code  Gb  IC_Test.o [1]
-TEST_ID                      0x213d   0x14  Code  Gb  IC_Test.o [1]
-TEST_Init                    0x2095   0x28  Code  Gb  IC_Test.o [1]
-TEST_Type                    0x20fd   0x40  Code  Gb  IC_Test.o [1]
-_GenldFullNoMb                0xf01  0x274  Code  Lc  xprintffull_nomb.o [2]
-_LdtobFullNoMb                0xafd  0x3d6  Code  Lc  xprintffull_nomb.o [2]
-_LitobFullNoMb                0x9ad  0x10a  Code  Lc  xprintffull_nomb.o [2]
-_Locale_lconv           0x1fff'0000   0x38  Data  Lc  xlocale_c.o [2]
-_PrintfFullNoMb               0x411  0x19e  Code  Gb  xprintffull_nomb.o [2]
-_PutcharsFullNoMb            0x1175   0x2e  Code  Lc  xprintffull_nomb.o [2]
-_PutfldFullNoMb               0x639  0x268  Code  Lc  xprintffull_nomb.o [2]
-_PuttxtFullNoMb               0x8a1  0x10c  Code  Lc  xprintffull_nomb.o [2]
-_SProut                      0x1253    0xa  Code  Gb  xsprout.o [2]
-__DEBUG_PRINT_TYPE           0x2483   0x82  Code  Gb  IC_Test.o [1]
+                             0x2c73   0xb4  Code  Gb  LCD1602.o [1]
+LCD1602_ImportGraph          0x2b4d   0x24  Code  Gb  LCD1602.o [1]
+LCD1602_Init                 0x2af1   0x5c  Code  Gb  LCD1602.o [1]
+LCD1602_Str                  0x2d27   0x44  Code  Gb  LCD1602.o [1]
+LCD1602_WriteCmd             0x2b71   0x64  Code  Gb  LCD1602.o [1]
+LCD1602_WriteDat             0x2c15   0x5e  Code  Gb  LCD1602.o [1]
+LED_Init()                   0x3335   0x70  Code  Gb  LED.o [1]
+NMI_Handler                  0x46ad    0x2  Code  Gb  system_MK60D10.o [1]
+PORTA_IRQHandler             0x47d1   0x1c  Code  Gb  isr.o [1]
+PORTE_IRQHandler             0x47ed   0x1a  Code  Gb  isr.o [1]
+Region$$Table$$Base          0x48f4          --   Gb  - Linker created -
+Region$$Table$$Limit         0x491c          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Base        0x4aac          --   Gb  - Linker created -
+SHT$$INIT_ARRAY$$Limit       0x4ab4          --   Gb  - Linker created -
+SHT$$PREINIT_ARRAY$$Base
+                             0x4aac          --   Gb  - Linker created -
+SHT$$PREINIT_ARRAY$$Limit
+                             0x4aac          --   Gb  - Linker created -
+SYSTEM_CLK()                 0x45ed   0x8a  Code  Gb  system_MK60D10.o [1]
+Start                        0x46a1    0xc  Code  Gb  system_MK60D10.o [1]
+System::System()             0x2635   0x1a  Code  Gb  IC_Test.o [1]
+System::getClock()           0x266d   0x44  Code  Gb  IC_Test.o [1]
+System::init()               0x2653   0x1a  Code  Gb  IC_Test.o [1]
+System::regDetector(Detector *)
+                             0x27a5    0x4  Code  Gb  IC_Test.o [1]
+System::taskAllocate(void (*)())
+                             0x26c1   0x88  Code  Gb  IC_Test.o [1]
+System::~System()            0x2651    0x2  Code  Gb  IC_Test.o [1]
+Test::Test()                 0x2059    0x2  Code  Gb  IC_Test.o [1]
+Test::checkAll()             0x22f3   0x86  Code  Gb  IC_Test.o [1]
+Test::checkComparator()
+                             0x22cf    0x6  Code  Gb  IC_Test.o [1]
+Test::checkDeMultiplexer()
+                             0x22db    0x6  Code  Gb  IC_Test.o [1]
+Test::checkDecoder()         0x22c3    0x6  Code  Gb  IC_Test.o [1]
+Test::checkEncoder()         0x22bd    0x6  Code  Gb  IC_Test.o [1]
+Test::checkFlipFlop()        0x22c9    0x6  Code  Gb  IC_Test.o [1]
+Test::checkGate()            0x216f  0x148  Code  Gb  IC_Test.o [1]
+Test::checkMultiplexer()
+                             0x22d5    0x6  Code  Gb  IC_Test.o [1]
+Test::checkPort()            0x20c3   0xac  Code  Gb  IC_Test.o [1]
+Test::checkSPConvertor()
+                             0x22ed    0x6  Code  Gb  IC_Test.o [1]
+Test::checkShiftReg()        0x22e7    0x6  Code  Gb  IC_Test.o [1]
+Test::checkTriState()        0x22e1    0x6  Code  Gb  IC_Test.o [1]
+Test::findName()             0x24b3   0x68  Code  Gb  IC_Test.o [1]
+Test::findType()             0x2379   0xba  Code  Gb  IC_Test.o [1]
+Test::ioPort()               0x207d   0x46  Code  Gb  IC_Test.o [1]
+Test::isComparator()         0x248f    0x6  Code  Gb  IC_Test.o [1]
+Test::isDeMultiplexer()
+                             0x249b    0x6  Code  Gb  IC_Test.o [1]
+Test::isDecoder()            0x2483    0x6  Code  Gb  IC_Test.o [1]
+Test::isEncoder()            0x247d    0x6  Code  Gb  IC_Test.o [1]
+Test::isFlipFlop()           0x2489    0x6  Code  Gb  IC_Test.o [1]
+Test::isGate()               0x2433   0x40  Code  Gb  IC_Test.o [1]
+Test::isMultiplexer()        0x2495    0x6  Code  Gb  IC_Test.o [1]
+Test::isSPConvertor()        0x24ad    0x6  Code  Gb  IC_Test.o [1]
+Test::isShiftReg()           0x24a7    0x6  Code  Gb  IC_Test.o [1]
+Test::isTriState()           0x24a1    0x6  Code  Gb  IC_Test.o [1]
+Test::reset()                0x205d   0x20  Code  Gb  IC_Test.o [1]
+Test::searchGate()           0x251b  0x106  Code  Gb  IC_Test.o [1]
+Test::~Test()                0x205b    0x2  Code  Gb  IC_Test.o [1]
+[local to IC_Test_cpp]::NVIC_EnableIRQ(IRQn)
+                             0x1989   0x18  Code  Lc  IC_Test.o [1]
+[local to IC_Test_cpp]::NVIC_SetPriority(IRQn, unsigned int)
+                             0x19a1   0x30  Code  Lc  IC_Test.o [1]
+[local to key_board_c]::NVIC_EnableIRQ(IRQn)
+                             0x2ead   0x16  Code  Lc  key_board.o [1]
+[local to key_board_c]::NVIC_SetPriority(IRQn, unsigned int)
+                             0x2ec3   0x2c  Code  Lc  key_board.o [1]
 __Vectors                       0x0          --   Gb  startup_MK60D10.o [1]
 __Vectors_End                 0x400         Data  Gb  startup_MK60D10.o [1]
 __Vectors_Size {Abs}          0x400          --   Gb  startup_MK60D10.o [1]
-__aeabi_cdcmple              0x1819         Code  Gb  DblCmpLe.o [3]
-__aeabi_cdrcmple             0x1849         Code  Gb  DblCmpGe.o [3]
-__aeabi_d2iz                 0x19b5         Code  Gb  DblToS32.o [3]
-__aeabi_d2uiz                0x1d41         Code  Gb  DblToU32.o [3]
-__aeabi_ddiv                 0x1af9         Code  Gb  DblDiv.o [3]
-__aeabi_dmul                 0x155d         Code  Gb  DblMul.o [3]
-__aeabi_dsub                 0x1a15         Code  Gb  DblSub.o [3]
-__aeabi_i2d                  0x19f1         Code  Gb  S32ToDbl.o [3]
-__aeabi_ldiv0                0x1d95         Code  Gb  I64DivZer.o [4]
-__aeabi_memcpy               0x1701         Code  Gb  ABImemcpy.o [4]
-__aeabi_memcpy4              0x1721         Code  Gb  ABImemcpy.o [4]
-__aeabi_memcpy8              0x1721         Code  Gb  ABImemcpy.o [4]
-__aeabi_ui2d                 0x1d69         Code  Gb  U32ToDbl.o [3]
-__aeabi_uldivmod             0x132d         Code  Gb  I64DivMod.o [4]
-__cmain                      0x3441         Code  Gb  cmain.o [4]
-__exit                       0x1f05   0x14  Code  Gb  exit.o [5]
-__iar_Fail_s                 0x125d   0x1c  Code  Gb  xfail_s.o [2]
-__iar_Memchr                 0x12d5         Code  Gb  memchr.o [4]
-__iar_Strchr                 0x123d         Code  Gb  strchr.o [4]
-__iar_copy_init3             0x33c9   0x2c  Code  Gb  copy_init3.o [4]
-__iar_dadd                   0x1a25         Code  Gb  DblSub.o [3]
-__iar_data_init3             0x33f5   0x28  Code  Gb  data_init.o [4]
-__iar_dsub                   0x1d99         Code  Gb  DblAdd.o [3]
-__iar_dsubStart              0x1dab         Code  Gb  DblAdd.o [3]
-__iar_frexp                  0x17b5         Code  Gb  frexp.o [3]
-__iar_frexp64                0x17a9         Code  Gb  frexp.o [3]
-__iar_frexpl                 0x17b5         Code  Gb  frexp.o [3]
-__iar_ldexp64                0x1879         Code  Gb  ldexp.o [3]
-__iar_program_start          0x359d         Code  Gb  cstartup_M.o [4]
-__iar_scalbln64              0x1879         Code  Gb  ldexp.o [3]
-__iar_scalbn64               0x1879         Code  Gb  ldexp.o [3]
-__iar_zero_init3             0x1203   0x3a  Code  Gb  zero_init3.o [4]
-__low_level_init             0x345f    0x4  Code  Gb  low_level_init.o [2]
+__aeabi_atexit               0x27a9    0xa  Code  Gb  cxxabi.o [3]
+__aeabi_memcpy               0x3c75         Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy4              0x3c95         Code  Gb  ABImemcpy.o [5]
+__aeabi_memcpy8              0x3c95         Code  Gb  ABImemcpy.o [5]
+__aeabi_memmove              0x3e81         Code  Gb  ABImemmove.o [5]
+__aeabi_memmove4             0x3e81         Code  Gb  ABImemmove.o [5]
+__aeabi_memmove8             0x3e81         Code  Gb  ABImemmove.o [5]
+__aeabi_memset               0x32c5         Code  Gb  ABImemset.o [5]
+__call_ctors                 0x33a5   0x18  Code  Gb  cppinit.o [2]
+__call_dtors                 0x33f3    0xc  Code  Gb  cppinit.o [2]
+__call_dtors0                0x33ff   0x36  Code  Gb  cppinit.o [2]
+__cexit_call_dtors           0x4967         Code  Gb  cexit.o [5]
+__cmain                      0x493d         Code  Gb  cmain.o [5]
+__cstart_call_dtors          0x4c70         Data  Gb  cstart_call_dtors.o [5]
+__cxa_atexit                 0x33bd   0x36  Code  Gb  cppinit.o [2]
+__data_GetMemChunk           0x1931   0x2c  Code  Gb  xgetmemchunk.o [2]
+__data_GetMemChunk::start
+                        0x1fff'02c4    0x4  Data  Lc  xgetmemchunk.o [2]
+__dso_handle            0x1fff'02bc    0x4  Data  Gb  cppinit.o [2]
+__exit                       0x195d   0x14  Code  Gb  exit.o [6]
+__iar_Memchr                 0x3d9d         Code  Gb  memchr.o [5]
+__iar_Memset                 0x32c5         Code  Gb  ABImemset.o [5]
+__iar_Memset_word            0x32cd         Code  Gb  ABImemset.o [5]
+__iar_copy_init3             0x48a1   0x2c  Code  Gb  copy_init3.o [5]
+__iar_cstart_call_ctors
+                             0x491d   0x20  Code  Gb  cmain_call_ctors.o [5]
+__iar_data_init3             0x48cd   0x28  Code  Gb  data_init.o [5]
+__iar_debug_exceptions       0x27b3    0x1  Data  Gb  unwind_debug.o [6]
+__iar_dlfree                 0x13ef  0x4f6  Code  Gb  dlmalloc.o [2]
+__iar_dlmalloc               0x1139  0x2b6  Code  Gb  dlmalloc.o [2]
+__iar_program_start          0x4a49         Code  Gb  cstartup_M.o [5]
+__iar_tls$$INIT_ARRAY$$Base
+                             0x4ab4          --   Gb  - Linker created -
+__iar_tls$$INIT_ARRAY$$Limit
+                             0x4ab4          --   Gb  - Linker created -
+__iar_zero_init3             0x18f7   0x3a  Code  Gb  zero_init3.o [5]
+__low_level_init             0x495b    0x4  Code  Gb  low_level_init.o [2]
+__sti__routine               0x1971   0x18  Code  Lc  IC_Test.o [1]
+__sti__routine               0x481d   0x12  Code  Lc  main.o [1]
 __vector_table                  0x0         Data  Gb  startup_MK60D10.o [1]
-_call_main                   0x344d         Code  Gb  cmain.o [4]
-_exit                        0x3469         Code  Gb  cexit.o [4]
-_main                        0x345b         Code  Gb  cmain.o [4]
-abort                        0x1d8d    0x6  Code  Gb  abort.o [2]
-buf                     0x1fff'00a8    0xc  Data  Gb  key_board.o [1]
-core_clk_mhz            0x1fff'0044    0x4  Data  Gb  SystickDelay.o [1]
-exit                         0x3463    0x4  Code  Gb  exit.o [2]
-frexp                        0x17a9         Code  Gb  frexp.o [3]
-frexpl                       0x17a9         Code  Gb  frexp.o [3]
-key_board_Init               0x2c51   0xb2  Code  Gb  key_board.o [1]
-ldexp                        0x1879         Code  Gb  ldexp.o [3]
-ldexpl                       0x1879         Code  Gb  ldexp.o [3]
-localeconv                   0x1d85    0x4  Code  Gb  xlocale_c.o [2]
-main                         0x302d   0xd4  Code  Gb  main.o [1]
-memchr                       0x12d5         Code  Gb  memchr.o [4]
-scalbln                      0x1879         Code  Gb  ldexp.o [3]
-scalblnl                     0x1879         Code  Gb  ldexp.o [3]
-scalbn                       0x1879         Code  Gb  ldexp.o [3]
-scalbnl                      0x1879         Code  Gb  ldexp.o [3]
-scale                         0xab7   0x46  Code  Lc  xprintffull_nomb.o [2]
-sec_hand                0x1fff'00b4    0x4  Data  Lc  xfail_s.o [2]
-sprint_buf              0x1fff'0088   0x20  Data  Lc  LCD1602.o [1]
-strchr                       0x123d         Code  Gb  strchr.o [4]
-strlen                       0x129d         Code  Gb  strlen.o [4]
-systick_delay                0x27fd   0x20  Code  Gb  SystickDelay.o [1]
-systick_delay_ms             0x281d   0x1e  Code  Gb  SystickDelay.o [1]
-vsprintf                     0x2b99   0x34  Code  Gb  vsprintf.o [2]
+_call_main                   0x4949         Code  Gb  cmain.o [5]
+_exit                        0x4965         Code  Gb  cexit.o [5]
+_gm_                    0x1fff'0004  0x1d8  Data  Lc  dlmalloc.o [2]
+_main                        0x4957         Code  Gb  cmain.o [5]
+abort                        0x18f1    0x6  Code  Gb  abort.o [2]
+add_segment                   0x7d9  0x1f2  Code  Lc  dlmalloc.o [2]
+bool std::operator !=<std::allocator<char>, std::allocator<char>>(std::_Wrap_alloc<std::allocator<char>> const &, const std::_Wrap_alloc<std::allocator<char>>&)
+                             0x3773   0x1c  Code  Gb  IC_Test.o [1]
+bool std::operator ==<char, char>(const std::allocator<char>&, const std::allocator<char>&)
+                             0x40c1    0x4  Code  Gb  IC_Test.o [1]
+bool std::operator ==<std::allocator<char>, std::allocator<char>>(std::_Wrap_alloc<std::allocator<char>> const &, const std::_Wrap_alloc<std::allocator<char>>&)
+                             0x3b7b   0x10  Code  Gb  IC_Test.o [1]
+char * && std::forward<char *>(std::remove_reference<char *>::type &)
+                             0x453d    0x2  Code  Gb  information.o [1]
+char * std::_Addressof<char>(char &, std::integral_constant<bool, (bool)0>)
+                             0x3c73    0x2  Code  Gb  information.o [1]
+char * std::_Allocate<char>(unsigned int, char *, bool)
+                             0x456b   0x1a  Code  Gb  information.o [1]
+char * std::addressof<char>(char &)
+                             0x38af    0xc  Code  Gb  information.o [1]
+char *& && std::forward<char *&>(std::remove_reference<char *&>::type &)
+                             0x423f    0x2  Code  Gb  IC_Test.o [1]
+const std::allocator<char>& && std::forward<const std::allocator<char>&>(std::remove_reference<const std::allocator<char>&>::type &)
+                             0x425b    0x2  Code  Gb  information.o [1]
+core_clk_mhz            0x1fff'0000    0x4  Data  Gb  SystickDelay.o [1]
+detector_NO1            0x1fff'01dc   0x9c  Data  Gb  main.o [1]
+exit                         0x495f    0x4  Code  Gb  exit.o [2]
+free                         0x455f    0x4  Code  Gb  heaptramp0.o [2]
+init_mparams                  0x42b   0x32  Code  Lc  dlmalloc.o [2]
+init_top                      0x45d   0x36  Code  Lc  dlmalloc.o [2]
+key_board_Init()             0x2f4b   0xb2  Code  Gb  key_board.o [1]
+main                         0x482f   0x22  Code  Gb  main.o [1]
+memchr                       0x3d9d         Code  Gb  memchr.o [5]
+memcmp                       0x3df5         Code  Gb  memcmp.o [5]
+mparams                 0x1fff'0290   0x18  Data  Lc  dlmalloc.o [2]
+next_abi_dtor_rec       0x1fff'02b8    0x4  Data  Lc  cppinit.o [2]
+operator delete (void *)
+                             0x4515    0xa  Code  Gb  delop_0.o [3]
+operator new (unsigned int)
+                             0x45ad   0x24  Code  Gb  newop_0.o [3]
+operator new (unsigned int, void *)
+                             0x455b    0x4  Code  Gb  information.o [1]
+prepend_alloc                 0x493  0x346  Code  Lc  dlmalloc.o [2]
+segment_holding               0x411   0x1a  Code  Lc  dlmalloc.o [2]
+sizeof_GATE_BASEs()          0x332f    0x4  Code  Gb  CHIPs_Lib.o [1]
+sizeof_IO__GATE()            0x332b    0x4  Code  Gb  CHIPs_Lib.o [1]
+std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Compressed_pair<const std::allocator<char>&, >(std::_One_then_variadic_args_t, const std::allocator<char>& &&,  &&...)
+                             0x3c45   0x1e  Code  Gb  information.o [1]
+std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Get_first()
+                             0x3b79    0x2  Code  Gb  information.o [1]
+std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Get_first() const
+                             0x4033    0x2  Code  Gb  information.o [1]
+std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Get_second()
+                             0x39ef    0x2  Code  Gb  information.o [1]
+std::_Compressed_pair<std::_Wrap_alloc<std::allocator<char>>, std::_String_val<std::_Simple_types<char>>, (bool)1>::_Get_second() const
+                             0x3e5d    0x2  Code  Gb  information.o [1]
+std::_Iterator_base0::_Adopt(void const *)
+                             0x4283    0x2  Code  Gb  IC_Test.o [1]
+std::_Iterator_base0::_Getcont() const
+                             0x42d1    0x6  Code  Gb  IC_Test.o [1]
+std::_NomemoryNothrow()
+                             0x45d1    0x4  Code  Gb  nomemory.o [3]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Bx()
+                             0x3893    0xc  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Get_data()
+                             0x35bd    0xc  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Get_data() const
+                             0x39cd    0xc  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Getal()
+                             0x3767    0xc  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Getal() const
+                             0x3af1    0xc  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Move_alloc(std::_Wrap_alloc<std::allocator<char>> &)
+                             0x378f   0x14  Code  Gb  IC_Test.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Myptr()
+                             0x3857   0x10  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Myptr() const
+                             0x359f   0x10  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Myptr2()
+                             0x35c9   0x10  Code  Gb  IC_Test.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Myres()
+                             0x3885    0xe  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Mysize()
+                             0x3601    0xe  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_Mysize() const
+                             0x35af    0xe  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_String_alloc(const std::allocator<char>&)
+                             0x3869   0x1c  Code  Gb  information.o [1]
+std::_String_alloc<std::_String_base_types<char, std::allocator<char>>>::_String_alloc(const std::allocator<char>&) [subobject]
+                             0x3465    0xc  Code  Gb  information.o [1]
+std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>::_Compat(const std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>&) const
+                             0x3a1b    0x2  Code  Gb  IC_Test.o [1]
+std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>::_String_const_iterator(char const *, std::_Container_base0 const *)
+                             0x3e6b   0x16  Code  Gb  IC_Test.o [1]
+std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>::_String_const_iterator(char const *, std::_Container_base0 const *) [subobject]
+                             0x3a07    0xc  Code  Gb  IC_Test.o [1]
+std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>::operator *() const
+                             0x42d7    0x4  Code  Gb  IC_Test.o [1]
+std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>::operator +=(int)
+                             0x3a13    0x8  Code  Gb  IC_Test.o [1]
+std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>::operator -(const std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>&) const
+                             0x361f   0x16  Code  Gb  IC_Test.o [1]
+std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>::operator ==(const std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>&) const
+                             0x40db   0x32  Code  Gb  IC_Test.o [1]
+std::_String_iterator<std::_String_val<std::_Simple_types<char>>>::_String_iterator(char *, std::_Container_base0 const *)
+                             0x35d9   0x16  Code  Gb  IC_Test.o [1]
+std::_String_iterator<std::_String_val<std::_Simple_types<char>>>::operator *() const
+                             0x411d    0xc  Code  Gb  IC_Test.o [1]
+std::_String_iterator<std::_String_val<std::_Simple_types<char>>>::operator +(int) const
+                             0x317d   0x16  Code  Gb  IC_Test.o [1]
+std::_String_iterator<std::_String_val<std::_Simple_types<char>>>::operator +=(int)
+                             0x35ef   0x12  Code  Gb  IC_Test.o [1]
+std::_String_iterator<std::_String_val<std::_Simple_types<char>>>::operator -(int) const
+                             0x31bf   0x16  Code  Gb  IC_Test.o [1]
+std::_String_iterator<std::_String_val<std::_Simple_types<char>>>::operator -(std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>> const &) const
+                             0x410d   0x10  Code  Gb  IC_Test.o [1]
+std::_String_iterator<std::_String_val<std::_Simple_types<char>>>::operator -=(int)
+                             0x360f   0x10  Code  Gb  IC_Test.o [1]
+std::_String_val<std::_Simple_types<char>>::_Myptr()
+                             0x3c2f   0x16  Code  Gb  information.o [1]
+std::_String_val<std::_Simple_types<char>>::_Myptr() const
+                             0x39d9   0x16  Code  Gb  information.o [1]
+std::_String_val<std::_Simple_types<char>>::_Myptr2()
+                             0x39f1   0x16  Code  Gb  IC_Test.o [1]
+std::_String_val<std::_Simple_types<char>>::_String_val()
+                             0x4269    0xa  Code  Gb  information.o [1]
+std::_Wrap_alloc<std::allocator<char>>::_Wrap_alloc(const std::allocator<char>&)
+                             0x4513    0x2  Code  Gb  information.o [1]
+std::_Wrap_alloc<std::allocator<char>>::_Wrap_alloc(const std::allocator<char>&) [subobject]
+                             0x425d    0xc  Code  Gb  information.o [1]
+std::_Wrap_alloc<std::allocator<char>>::allocate(unsigned int)
+                             0x4291   0x10  Code  Gb  information.o [1]
+std::_Wrap_alloc<std::allocator<char>>::deallocate(char *, unsigned int)
+                             0x38e3   0x14  Code  Gb  information.o [1]
+std::_Wrap_alloc<std::allocator<char>>::max_size(std::_Nil) const
+                             0x4285    0xc  Code  Gb  information.o [1]
+std::_Wrap_alloc<std::allocator<char>>::operator =(const std::_Wrap_alloc<std::allocator<char>>&)
+                             0x42bf   0x12  Code  Gb  IC_Test.o [1]
+std::__iar_New_hand     0x1fff'02c0    0x4  Data  Gb  new.o [3]
+std::allocator<char>::allocate(unsigned int)
+                             0x452b   0x12  Code  Gb  information.o [1]
+std::allocator<char>::allocator(const std::allocator<char>&)
+                             0x3afd    0x2  Code  Gb  IC_Test.o [1]
+std::allocator<char>::deallocate(char *, unsigned int)
+                             0x3d1b   0x12  Code  Gb  information.o [1]
+std::allocator<char>::max_size() const
+                             0x4563    0x8  Code  Gb  information.o [1]
+std::allocator<char>::operator =(const std::allocator<char>&)
+                             0x4559    0x2  Code  Gb  IC_Test.o [1]
+std::allocator_traits<std::allocator<char>>::max_size(const std::allocator<char>&)
+                             0x451f    0xc  Code  Gb  information.o [1]
+std::char_traits<char>::assign(char &, char const &)
+                             0x3d2d    0x6  Code  Gb  information.o [1]
+std::char_traits<char>::assign(char *, unsigned int, char)
+                             0x400f   0x24  Code  Gb  IC_Test.o [1]
+std::char_traits<char>::compare(char const *, char const *, unsigned int)
+                             0x39b1   0x1c  Code  Gb  IC_Test.o [1]
+std::char_traits<char>::copy(char *, char const *, unsigned int)
+                             0x38bb   0x28  Code  Gb  information.o [1]
+std::char_traits<char>::find(char const *, unsigned int, char const &)
+                             0x3989   0x28  Code  Gb  IC_Test.o [1]
+std::char_traits<char>::length(char const *)
+                             0x391f   0x18  Code  Gb  information.o [1]
+std::char_traits<char>::move(char *, char const *, unsigned int)
+                             0x3a1d   0x28  Code  Gb  information.o [1]
+std::enable_if<std::_Is_iterator<std::_String_iterator<std::_String_val<std::_Simple_types<char>>>, void>::value, std::string&>::type std::string::assign<std::_String_iterator<std::_String_val<std::_Simple_types<char>>>>(std::_String_iterator<std::_String_val<std::_Simple_types<char>>>, std::_String_iterator<std::_String_val<std::_Simple_types<char>>>)
+                             0x37a3   0x26  Code  Gb  IC_Test.o [1]
+std::pointer_traits<char *>::pointer_to(char &)
+                             0x3e5f    0xc  Code  Gb  IC_Test.o [1]
+std::remove_reference<char *&>::type && std::move<char *&>(char *& &&)
+                             0x42a1    0x2  Code  Gb  information.o [1]
+std::remove_reference<std::_Wrap_alloc<std::allocator<char>> &>::type && std::move<std::_Wrap_alloc<std::allocator<char>> &>(std::_Wrap_alloc<std::allocator<char>> & &&)
+                             0x42bd    0x2  Code  Gb  IC_Test.o [1]
+std::string && std::forward<std::string>(std::remove_reference<std::string>::type &)
+                             0x37c9    0x2  Code  Gb  IC_Test.o [1]
+std::string::_Assign_rv(std::string&&)
+                             0x37cb   0x8c  Code  Gb  IC_Test.o [1]
+std::string::_Chassign(unsigned int, unsigned int, char)
+                             0x3ac1   0x30  Code  Gb  IC_Test.o [1]
+std::string::_Copy(unsigned int, unsigned int)
+                             0x3f33   0xdc  Code  Gb  information.o [1]
+std::string::_Eos(unsigned int)
+                             0x38f7   0x28  Code  Gb  information.o [1]
+std::string::_Grow(unsigned int, bool)
+                             0x3a45   0x7c  Code  Gb  information.o [1]
+std::string::_Inside(char const *)
+                             0x3d6b   0x32  Code  Gb  information.o [1]
+std::string::_Tidy(bool, unsigned int)
+                             0x3471   0x84  Code  Gb  information.o [1]
+std::string::assign(char const *)
+                             0x34f5   0x18  Code  Gb  information.o [1]
+std::string::assign(char const *, unsigned int)
+                             0x3937   0x52  Code  Gb  information.o [1]
+std::string::assign(const std::string&, unsigned int, unsigned int)
+                             0x3aff   0x7a  Code  Gb  information.o [1]
+std::string::at(unsigned int)
+                             0x3445   0x20  Code  Gb  information.o [1]
+std::string::basic_string()
+                             0x2e41   0x1a  Code  Gb  IC_Test.o [1]
+std::string::basic_string(char const *)
+                             0x2e5b   0x24  Code  Gb  information.o [1]
+std::string::basic_string(const std::string&, unsigned int, unsigned int, const std::allocator<char>&)
+                             0x3733   0x34  Code  Gb  IC_Test.o [1]
+std::string::begin()         0x315d   0x20  Code  Gb  IC_Test.o [1]
+std::string::c_str() const
+                             0x2e93    0xc  Code  Gb  IC_Test.o [1]
+std::string::end()           0x3193   0x2c  Code  Gb  IC_Test.o [1]
+std::string::erase(unsigned int)
+                             0x4035   0x22  Code  Gb  information.o [1]
+std::string::erase(unsigned int, unsigned int)
+                             0x4057   0x6a  Code  Gb  information.o [1]
+std::string::find(char const *, unsigned int, unsigned int) const
+                             0x350d   0x92  Code  Gb  IC_Test.o [1]
+std::string::find(char, unsigned int) const
+                             0x2e7f   0x14  Code  Gb  IC_Test.o [1]
+std::string::get_allocator() const
+                             0x371d   0x16  Code  Gb  IC_Test.o [1]
+std::string::max_size() const
+                             0x3f17   0x1c  Code  Gb  information.o [1]
+std::string::operator =(std::string&&)
+                             0x3235   0x7e  Code  Gb  IC_Test.o [1]
+std::string::replace(std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>, std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>, std::_String_iterator<std::_String_val<std::_Simple_types<char>>>, std::_String_iterator<std::_String_val<std::_Simple_types<char>>>)
+                             0x3b9d   0x78  Code  Gb  IC_Test.o [1]
+std::string::replace(std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>, std::_String_const_iterator<std::_String_val<std::_Simple_types<char>>>, unsigned int, char)
+                             0x31d5   0x3c  Code  Gb  IC_Test.o [1]
+std::string::replace(unsigned int, unsigned int, char const *, unsigned int)
+                             0x4129  0x116  Code  Gb  IC_Test.o [1]
+std::string::replace(unsigned int, unsigned int, const std::string&, unsigned int, unsigned int)
+                             0x42db  0x212  Code  Gb  IC_Test.o [1]
+std::string::replace(unsigned int, unsigned int, unsigned int, char)
+                             0x3635   0xe8  Code  Gb  IC_Test.o [1]
+std::string::size() const
+                             0x2e9f    0xe  Code  Gb  information.o [1]
+std::string::substr(unsigned int, unsigned int) const
+                             0x3211   0x24  Code  Gb  IC_Test.o [1]
+std::string::~basic_string()
+                             0x32b3   0x12  Code  Gb  information.o [1]
+strlen                       0x3d35         Code  Gb  strlen.o [5]
+sys_alloc                     0x9d1  0x164  Code  Lc  dlmalloc.o [2]
+sys_trim                      0xb35   0x64  Code  Lc  dlmalloc.o [2]
+systick_delay                0x27b5   0x20  Code  Gb  SystickDelay.o [1]
+systick_delay_ms             0x27d5   0x1e  Code  Gb  SystickDelay.o [1]
+tmalloc_large                 0xba5  0x386  Code  Lc  dlmalloc.o [2]
+tmalloc_small                 0xf2b  0x200  Code  Lc  dlmalloc.o [2]
+void std::_Deallocate<char>(char *, unsigned int)
+                             0x4275    0xe  Code  Gb  information.o [1]
+void std::_Pocma<std::_Wrap_alloc<std::allocator<char>>>(std::_Wrap_alloc<std::allocator<char>> &, std::_Wrap_alloc<std::allocator<char>> &)
+                             0x3b8b   0x12  Code  Gb  IC_Test.o [1]
+void std::_Pocma<std::_Wrap_alloc<std::allocator<char>>>(std::_Wrap_alloc<std::allocator<char>> &, std::_Wrap_alloc<std::allocator<char>> &, std::integral_constant<bool, (bool)1>)
+                             0x40c5   0x16  Code  Gb  IC_Test.o [1]
+void std::_Wrap_alloc<std::allocator<char>>::construct<char *, char *&>(char * *, char *& &&...)
+                             0x3c15   0x1a  Code  Gb  IC_Test.o [1]
+void std::_Wrap_alloc<std::allocator<char>>::construct<char *, char *>(char * *, char * &&...)
+                             0x42a3   0x1a  Code  Gb  information.o [1]
+void std::_Wrap_alloc<std::allocator<char>>::destroy<char *>(char * *)
+                             0x389f   0x10  Code  Gb  information.o [1]
+void std::allocator<char>::construct<char *, char *&>(char * *, char *& &&...)
+                             0x44ed   0x26  Code  Gb  IC_Test.o [1]
+void std::allocator<char>::construct<char *, char *>(char * *, char * &&...)
+                             0x4585   0x26  Code  Gb  information.o [1]
+void std::allocator<char>::destroy<char *>(char * *)
+                             0x4273    0x2  Code  Gb  information.o [1]
+void std::allocator_traits<std::allocator<char>>::construct<char *, char *&>(std::allocator<char>&, char * *, char *& &&...)
+                             0x4241   0x1a  Code  Gb  IC_Test.o [1]
+void std::allocator_traits<std::allocator<char>>::construct<char *, char *>(std::allocator<char>&, char * *, char * &&...)
+                             0x453f   0x1a  Code  Gb  information.o [1]
+void std::allocator_traits<std::allocator<char>>::destroy<char *>(std::allocator<char>&, char * *)
+                             0x3c63   0x10  Code  Gb  information.o [1]
 
 
-[1] = C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20191205——(手动查询)\IAR\Programs\Debug\Obj
+[1] = C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\Debug\Obj
 [2] = dl7M_tlf.a
-[3] = m7M_tl.a
-[4] = rt7M_tl.a
-[5] = shb_l.a
+[3] = dlpp7M_tl_fc.a
+[4] = m7M_tl.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
 
-  13 556 bytes of readonly  code memory
-     788 bytes of readonly  data memory
-   8 378 bytes of readwrite data memory
+  18 878 bytes of readonly  code memory
+     694 bytes of readonly  data memory
+  25 709 bytes of readwrite data memory
 
 Errors: none
 Warnings: none

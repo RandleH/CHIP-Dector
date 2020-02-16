@@ -260,7 +260,7 @@
                 </option>
                 <option>
                     <name>CCDiagSuppress</name>
-                    <state></state>
+                    <state>Pa082</state>
                 </option>
                 <option>
                     <name>CCDiagRemark</name>
@@ -402,7 +402,7 @@
                 </option>
                 <option>
                     <name>IccLang</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IccCDialect</name>
@@ -418,7 +418,7 @@
                 </option>
                 <option>
                     <name>IccCppInlineSemantics</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>IccCmsis</name>
@@ -2109,13 +2109,19 @@
         <group>
             <name>inc</name>
             <file>
+                <name>$PROJ_DIR$\..\..\Libraries\Drivers\CHIPs_Lib.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\..\Libraries\Drivers\common.h</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\Libraries\Drivers\Display.h</name>
+                <name>$PROJ_DIR$\..\..\Libraries\Drivers\debug.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\Libraries\Drivers\IC_Test.h</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\Libraries\Drivers\information.h</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\Libraries\startup\DeviceSupport\MK60D10.h</name>
@@ -2130,10 +2136,13 @@
                 <name>$PROJ_DIR$\..\..\Libraries\Drivers\CHIPs_Lib.c</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\Libraries\Drivers\Display.c</name>
+                <name>$PROJ_DIR$\..\..\Libraries\Drivers\debug.cpp</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\Libraries\Drivers\IC_Test.c</name>
+                <name>$PROJ_DIR$\..\..\Libraries\Drivers\IC_Test.cpp</name>
+            </file>
+            <file>
+                <name>$PROJ_DIR$\..\..\Libraries\Drivers\information.cpp</name>
             </file>
             <file>
                 <name>$PROJ_DIR$\..\..\Libraries\Drivers\SystickDelay.c</name>
@@ -2193,10 +2202,10 @@
         <group>
             <name>src</name>
             <file>
-                <name>$PROJ_DIR$\..\..\Users\isr.c</name>
+                <name>$PROJ_DIR$\..\..\Users\isr.cpp</name>
             </file>
             <file>
-                <name>$PROJ_DIR$\..\..\Users\main.c</name>
+                <name>$PROJ_DIR$\..\..\Users\main.cpp</name>
             </file>
         </group>
     </group>

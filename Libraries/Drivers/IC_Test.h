@@ -9,100 +9,163 @@
 * COPYRIGHT NOTICE
  Copyright (c) 2019 Randle_H. All rights reserved.
 ----------------------------------------------------------------------------*/
+
+
 #include "headfiles.h"
+#include "string.h"
 #include "Num_Convert.h"
+#include "CHIPs_Lib.h"
+#include "isr.h"
+
+
 #ifndef _IC_TEST_H
 #define _IC_TEST_H
+
+#define EX_REF_CLK  50 
+#define UPDATE_STATE(OBJ) OBJ->last_state = OBJ->state
+#define RECORD_STATE(OBJ) OBJ->last_state = OBJ->state
+#define NEW_STATE(OBJ,X)  OBJ->state = (State)X    
+#define CURRENT_STATE(OBJ)    OBJ->state 
+
+#define SUPPORT_MAX_PINs 16
 
 #define SEND_WORD(X) PTD->PDOR = (uint16)(X);systick_delay(100)
 #define READ_WORD    (uint16)(PTB->PDIR)|(PTE->PDIR<<8)
 
 typedef enum
 {
-  Normal,
-  Auto,
-  Manual,
-  ShowResult,
-  ShowFig,
-  Wait
-}State_Typedef;
+  __StandBy__,__AutoTest__,__AutoTesting__,__ManTest__,__ManTesting__,__ShowResult__,__ShowFig__,__Uninitialized__
+}State;
 
-typedef enum
+typedef enum 
 {
-  FAST,
-  FULL
-}TestType;
+  logic_gate=0  ,and_gate       ,or_gate      ,not_gate       ,nand_gate      ,nor_gate     ,
+  eor_gate      ,encoder        ,decoder      ,flip_flop      ,comparator     ,multiplexer  ,
+  demultiplexer ,tri_state      ,shift_reg    ,serial_parallel,unknown        ,numofType
+}Type;
 
-typedef enum
+typedef enum {standard,debug}SysMode;
+
+typedef char*  Name;
+typedef uint16 Index;
+typedef char*  Title;
+
+class Test
 {
-  logic_gate,
-  encoder,
-  decoder,
-  flip_flop,
-  comparator,
-  multiplexer,
-  demultiplexer,
-  tri_state,
-  shift_reg,
-  serial_parallel,
-  unknown_chip
-}CHIP_Typedef;
+friend class Debug;
+friend class Display;
+private:
+  bool   init_flag;
+  bool   dir_flag;
+  bool   type_flag;
+  bool   name_flag;
 
-typedef enum
+  bool   isGate(void);
+  bool   isEncoder(void);
+  bool   isDecoder(void);
+  bool   isFlipFlop(void);
+  bool   isComparator(void);
+  bool   isMultiplexer(void);
+  bool   isDeMultiplexer(void);
+  bool   isTriState(void);
+  bool   isShiftReg(void);
+  bool   isSPConvertor(void);
+
+  bool   checkGate(void);
+  bool   checkEncoder(void);
+  bool   checkDecoder(void);
+  bool   checkFlipFlop(void);
+  bool   checkComparator(void);
+  bool   checkMultiplexer(void);
+  bool   checkDeMultiplexer(void);
+  bool   checkTriState(void);
+  bool   checkShiftReg(void);
+  bool   checkSPConvertor(void);
+  bool   checkAll(void);
+
+  uint8  searchGate(void);
+  uint8  searchEcoder();
+public:
+  Test();
+  ~Test();
+  uint16 pin_dir;
+  Name   name;
+  Type   type;
+  Title  title[20];
+  Index  index[18];
+  bool   pin[16];
+  void   reset();
+  bool   ioPort();
+  bool   findType();
+  bool   findName(void);
+  bool   checkPort(void);
+};
+
+typedef struct 
 {
-  INPUT,
-  OTHER
-}DDR_Typedef;
+  uint8 x:4;
+  uint8 y:1;
+}Pos;
 
-typedef enum
+class Detector
 {
-  AND,
-  OR,
-  NOT,
-  NAND,
-  NOR,
-  EOR,
-  unknown_gate
-}GATE_Typedef;
+friend class Debug;
+friend class System;
+private:
+  State state;
+  State last_state;
+  Pos   tagName;
+  Pos   tagType;
+  Pos   tagFig;
+  Pos   tagResult;
+  Pos   tagText;
+  char  getKeyBoard();
+  void  display(uint8 x,uint8 y, const char* str);
+public:
+  Detector();
+  ~Detector();
+  Test    test;
+  void    displayTitle(void);
+  void    displayName(void);
+  void    displayType(void);
+  void    displayFig(void);
+  void    displayResult(void);
+  void    displayText(void);
+  void    clearScreen(void);
+  void    scanfName(void);
+  void    analyzeName(void);
+  void    led(void);
+  void    led(uint8 stat);
+  void    init(void);
+  void    close(void);
+  void    main(void);
+};
 
-typedef struct//To record the string name and the index of the chip in Lib 
-{
-  char*  ID_Name;
-  uint16 Index;
-}CHIP_Name_Typedef;
+class System{
+public:
+  System();
+  ~System();
+  void   init(void);
+  void   regDetector(Detector* p);
+  void   taskAllocate(void (*handler)(void));
+  void   startTimer();
+  uint16 getTimer();
+  void   stopTimer();
+  void   displaySetting();
+  void   getClock();
+  void   irq_setting(void);
+  void   mode(SysMode mode);
+private:
+  uint32 mcgout_clk_mhz;
+  uint32 core_clk_mhz;
+  uint32 bus_clk_mhz;
+  Detector* detector_cur;
+};
 
-typedef struct//To record the general parameters of the chip
-{
-  CHIP_Typedef          CHIP_Type;
-  GATE_Typedef          GATE_Type;
-  uint32                PIN_Direction;
-  uint8                 PIN_Error[16];
-  CHIP_Name_Typedef     CHIP_Name;
-}CHIP_Para_Typedef;
-
-void Dector_Init(void);
-void TEST_Init(CHIP_Para_Typedef* CHIP_Parameter);
-void TEST_Direction(CHIP_Para_Typedef* CHIP_Parameter);
-void TEST_Type(CHIP_Para_Typedef* CHIP_Parameter);
-void TEST_ID(CHIP_Para_Typedef* CHIP_Parameter);
-
-void AUTO_Test(void);
-uint8 MANUAL_Test(void);
-
-static char* GATE_ID(void);
-static bool GATE_Test(uint8 index,TestType TEST_TYPE);
-
-uint16 ID2INDEX(char*  ID_Name);
-
-static char* CODER_ID(void);
+extern System   $system$;
+extern char sprint_buf[32];
 
 
-void __DEBUG_PRINT_PROCESS(uint32 send,NUM_Type scale);
-void __DEBUG_PRINT_PROPERTY(uint32 dir);
-void __DEBUG_PRINT_TYPE(CHIP_Typedef type);
-extern CHIP_Para_Typedef        CHIP_Parameter;
-extern State_Typedef DectorState;
-extern State_Typedef DectorLastState;
 #endif
 
 

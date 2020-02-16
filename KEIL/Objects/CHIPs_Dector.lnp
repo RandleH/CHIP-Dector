@@ -1,0 +1,15 @@
+--cpu=Cortex-M4 --fpu=SoftVFP
+".\objects\key.o"
+".\objects\lcd1602.o"
+".\objects\led.o"
+".\objects\ic_test.o"
+".\objects\systickdelay.o"
+".\objects\system_mk60d10.o"
+".\objects\startup_mk60d10.o"
+".\objects\isr.o"
+".\objects\main.o"
+".\objects\num_convert.o"
+--strict --scatter ".\Objects\CHIPs_Dector.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\CHIPs_Dector.map" -o .\Objects\CHIPs_Dector.axf

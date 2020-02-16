@@ -17,12 +17,12 @@ End of Self-Defination
 #include "common.h"
 
 #include "IC_Test.h"
-#include "Display.h"
 #include "bit.h"
+#include "debug.h"
 
 #include "LCD1602.h"
 #include "LED.h"
 #include "key_board.h"
-
+#include "information.h"
 void System_Initialization(void);
 #endif

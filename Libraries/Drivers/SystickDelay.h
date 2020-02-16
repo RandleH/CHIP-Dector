@@ -9,6 +9,10 @@
 * COPYRIGHT NOTICE
  Copyright (c) 2019 Randle_H. All rights reserved.
 ----------------------------------------------------------------------------*/
+#ifdef __cplusplus
+extern "C"{
+#endif
+
 #include "MK60D10.h"
 #include "common.h"
 #ifndef _MK60_systick_h
@@ -22,4 +26,6 @@ uint32  systick_getval(void);
 
 #endif
 
-
+#ifdef __cplusplus
+}
+#endif

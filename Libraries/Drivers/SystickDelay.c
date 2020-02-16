@@ -9,6 +9,10 @@
 * COPYRIGHT NOTICE
  Copyright (c) 2019 Randle_H. All rights reserved.
 ----------------------------------------------------------------------------*/
+
+#ifdef __cplusplus
+extern "C"{
+#endif
 #include "SystickDelay.h"
 
 #define EX_REF_CLK  50 //(定义外部参考时钟为50MHZ)
@@ -78,3 +82,8 @@ uint32 systick_getval(void)
 {
     return SysTick->VAL;
 }
+
+
+#ifdef __cplusplus
+}
+#endif

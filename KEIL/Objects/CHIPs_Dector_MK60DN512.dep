@@ -1,0 +1,143 @@
+Dependencies for Project 'CHIPs_Dector', Target 'MK60DN512': (DO NOT MODIFY !)
+F (..\Libraries\Devices\src\KEY.c)(0x5DD006EB)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\Devices\inc -I ..\Libraries\Drivers -I ..\Libraries\startup\CoreSupport -I ..\Libraries\Tools\inc -I ..\Users-I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DMK60DN512xxx10-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+I (..\Libraries\Devices\inc\KEY.h)(0x5DCFFBE2)
+I (..\Users\headfiles.h)(0x5DDE3D72)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK60D10.h)(0x585B7C0A)
+I (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK60D10.h)(0x57512F60)
+I (..\Libraries\Drivers\common.h)(0x5DD772EE)
+I (..\Libraries\Drivers\SystickDelay.h)(0x5DD23976)
+I (..\Libraries\Drivers\IC_Test.h)(0x5DDA23E1)
+I (..\Libraries\Tools\inc\Num_Convert.h)(0x5DD38D1E)
+I (..\Libraries\Devices\inc\LCD1602.h)(0x5DD38BCD)
+I (..\Libraries\Devices\inc\LED.h)(0x5DDE3D85)
+F (..\Libraries\Devices\src\LCD1602.c)(0x5DDE3D94)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\Devices\inc -I ..\Libraries\Drivers -I ..\Libraries\startup\CoreSupport -I ..\Libraries\Tools\inc -I ..\Users-I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DMK60DN512xxx10-o .\objects\lcd1602.o --omf_browse .\objects\lcd1602.crf --depend .\objects\lcd1602.d)
+I (..\Libraries\Devices\inc\LCD1602.h)(0x5DD38BCD)
+I (..\Users\headfiles.h)(0x5DDE3D72)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK60D10.h)(0x585B7C0A)
+I (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK60D10.h)(0x57512F60)
+I (..\Libraries\Drivers\common.h)(0x5DD772EE)
+I (..\Libraries\Drivers\SystickDelay.h)(0x5DD23976)
+I (..\Libraries\Drivers\IC_Test.h)(0x5DDA23E1)
+I (..\Libraries\Tools\inc\Num_Convert.h)(0x5DD38D1E)
+I (..\Libraries\Devices\inc\LED.h)(0x5DDE3D85)
+I (..\Libraries\Devices\inc\KEY.h)(0x5DCFFBE2)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+F (..\Libraries\Devices\src\LED.c)(0x5DCE3B58)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\Devices\inc -I ..\Libraries\Drivers -I ..\Libraries\startup\CoreSupport -I ..\Libraries\Tools\inc -I ..\Users-I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DMK60DN512xxx10-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
+I (..\Libraries\Devices\inc\LED.h)(0x5DDE3D85)
+I (..\Users\headfiles.h)(0x5DDE3D72)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK60D10.h)(0x585B7C0A)
+I (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK60D10.h)(0x57512F60)
+I (..\Libraries\Drivers\common.h)(0x5DD772EE)
+I (..\Libraries\Drivers\SystickDelay.h)(0x5DD23976)
+I (..\Libraries\Drivers\IC_Test.h)(0x5DDA23E1)
+I (..\Libraries\Tools\inc\Num_Convert.h)(0x5DD38D1E)
+I (..\Libraries\Devices\inc\LCD1602.h)(0x5DD38BCD)
+I (..\Libraries\Devices\inc\KEY.h)(0x5DCFFBE2)
+F (..\Libraries\Drivers\IC_Test.c)(0x5DDA2C31)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\Devices\inc -I ..\Libraries\Drivers -I ..\Libraries\startup\CoreSupport -I ..\Libraries\Tools\inc -I ..\Users-I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DMK60DN512xxx10-o .\objects\ic_test.o --omf_browse .\objects\ic_test.crf --depend .\objects\ic_test.d)
+I (..\Libraries\Drivers\IC_Test.h)(0x5DDA23E1)
+I (..\Users\headfiles.h)(0x5DDE3D72)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK60D10.h)(0x585B7C0A)
+I (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK60D10.h)(0x57512F60)
+I (..\Libraries\Drivers\common.h)(0x5DD772EE)
+I (..\Libraries\Drivers\SystickDelay.h)(0x5DD23976)
+I (..\Libraries\Tools\inc\Num_Convert.h)(0x5DD38D1E)
+I (..\Libraries\Devices\inc\LCD1602.h)(0x5DD38BCD)
+I (..\Libraries\Devices\inc\LED.h)(0x5DDE3D85)
+I (..\Libraries\Devices\inc\KEY.h)(0x5DCFFBE2)
+I (..\Libraries\Drivers\CHIPs_Lib.h)(0x5DDA29F4)
+F (..\Libraries\Drivers\SystickDelay.c)(0x5DCA77A4)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\Devices\inc -I ..\Libraries\Drivers -I ..\Libraries\startup\CoreSupport -I ..\Libraries\Tools\inc -I ..\Users-I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DMK60DN512xxx10-o .\objects\systickdelay.o --omf_browse .\objects\systickdelay.crf --depend .\objects\systickdelay.d)
+I (..\Libraries\Drivers\SystickDelay.h)(0x5DD23976)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK60D10.h)(0x585B7C0A)
+I (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK60D10.h)(0x57512F60)
+I (..\Libraries\Drivers\common.h)(0x5DD772EE)
+F (..\Libraries\startup\DeviceSupport\system_MK60D10.c)(0x5DCA6EA3)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\Devices\inc -I ..\Libraries\Drivers -I ..\Libraries\startup\CoreSupport -I ..\Libraries\Tools\inc -I ..\Users-I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DMK60DN512xxx10-o .\objects\system_mk60d10.o --omf_browse .\objects\system_mk60d10.crf --depend .\objects\system_mk60d10.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Libraries\startup\DeviceSupport\MK60D10.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)
+I (..\Libraries\startup\DeviceSupport\system_MK60D10.h)(0x5DCA6D1D)
+I (..\Libraries\Drivers\common.h)(0x5DD772EE)
+F (..\Libraries\startup\DeviceSupport\MK60D10.h)(0x58B7B4D7)()
+F (..\Libraries\startup\DeviceSupport\MDK-ARM\startup_MK60D10.s)(0x56D539CB)(--cpu Cortex-M4 -g --apcs=interwork -I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 525" --pd "MK60DN512xxx10 SETA 1"--list .\listings\startup_mk60d10.lst --xref -o .\objects\startup_mk60d10.o --depend .\objects\startup_mk60d10.d)
+F (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)()
+F (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)()
+F (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)()
+F (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)()
+F (..\Users\headfiles.h)(0x5DDE3D72)()
+F (..\Users\isr.c)(0x5DDE3D72)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\Devices\inc -I ..\Libraries\Drivers -I ..\Libraries\startup\CoreSupport -I ..\Libraries\Tools\inc -I ..\Users-I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DMK60DN512xxx10-o .\objects\isr.o --omf_browse .\objects\isr.crf --depend .\objects\isr.d)
+I (..\Users\isr.h)(0x5DD0017D)
+I (..\Users\headfiles.h)(0x5DDE3D72)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK60D10.h)(0x585B7C0A)
+I (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK60D10.h)(0x57512F60)
+I (..\Libraries\Drivers\common.h)(0x5DD772EE)
+I (..\Libraries\Drivers\SystickDelay.h)(0x5DD23976)
+I (..\Libraries\Drivers\IC_Test.h)(0x5DDA23E1)
+I (..\Libraries\Tools\inc\Num_Convert.h)(0x5DD38D1E)
+I (..\Libraries\Devices\inc\LCD1602.h)(0x5DD38BCD)
+I (..\Libraries\Devices\inc\LED.h)(0x5DDE3D85)
+I (..\Libraries\Devices\inc\KEY.h)(0x5DCFFBE2)
+F (..\Users\main.c)(0x5DDE3C46)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\Devices\inc -I ..\Libraries\Drivers -I ..\Libraries\startup\CoreSupport -I ..\Libraries\Tools\inc -I ..\Users-I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DMK60DN512xxx10-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\Users\headfiles.h)(0x5DDE3D72)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK60D10.h)(0x585B7C0A)
+I (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK60D10.h)(0x57512F60)
+I (..\Libraries\Drivers\common.h)(0x5DD772EE)
+I (..\Libraries\Drivers\SystickDelay.h)(0x5DD23976)
+I (..\Libraries\Drivers\IC_Test.h)(0x5DDA23E1)
+I (..\Libraries\Tools\inc\Num_Convert.h)(0x5DD38D1E)
+I (..\Libraries\Devices\inc\LCD1602.h)(0x5DD38BCD)
+I (..\Libraries\Devices\inc\LED.h)(0x5DDE3D85)
+I (..\Libraries\Devices\inc\KEY.h)(0x5DCFFBE2)
+F (..\Libraries\Tools\src\Num_Convert.c)(0x5DDE3D72)(--c99 --gnu -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections -I ..\Libraries\Devices\inc -I ..\Libraries\Drivers -I ..\Libraries\startup\CoreSupport -I ..\Libraries\Tools\inc -I ..\Users-I.\RTE\_MK60DN512-IC:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DMK60DN512xxx10-o .\objects\num_convert.o --omf_browse .\objects\num_convert.crf --depend .\objects\num_convert.d)
+I (..\Libraries\Tools\inc\Num_Convert.h)(0x5DD38D1E)
+I (..\Users\headfiles.h)(0x5DDE3D72)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK60D10.h)(0x585B7C0A)
+I (..\Libraries\startup\CoreSupport\core_cm4.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\Libraries\startup\CoreSupport\core_cmInstr.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cmFunc.h)(0x58B7B4D7)
+I (..\Libraries\startup\CoreSupport\core_cm4_simd.h)(0x58B7B4D7)
+I (C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK60D10.h)(0x57512F60)
+I (..\Libraries\Drivers\common.h)(0x5DD772EE)
+I (..\Libraries\Drivers\SystickDelay.h)(0x5DD23976)
+I (..\Libraries\Drivers\IC_Test.h)(0x5DDA23E1)
+I (..\Libraries\Devices\inc\LCD1602.h)(0x5DD38BCD)
+I (..\Libraries\Devices\inc\LED.h)(0x5DDE3D85)
+I (..\Libraries\Devices\inc\KEY.h)(0x5DCFFBE2)

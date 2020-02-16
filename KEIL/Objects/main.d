@@ -1,0 +1,17 @@
+.\objects\main.o: ..\Users\main.c
+.\objects\main.o: ..\Users\headfiles.h
+.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\MK60D10.h
+.\objects\main.o: ..\Libraries\startup\CoreSupport\core_cm4.h
+.\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: ..\Libraries\startup\CoreSupport\core_cmInstr.h
+.\objects\main.o: ..\Libraries\startup\CoreSupport\core_cmFunc.h
+.\objects\main.o: ..\Libraries\startup\CoreSupport\core_cm4_simd.h
+.\objects\main.o: C:\Keil_v5\ARM\PACK\Keil\Kinetis_K60_DFP\1.5.0\Device\Include\system_MK60D10.h
+.\objects\main.o: ..\Libraries\Drivers\common.h
+.\objects\main.o: ..\Libraries\Drivers\SystickDelay.h
+.\objects\main.o: ..\Libraries\Drivers\IC_Test.h
+.\objects\main.o: ..\Users\headfiles.h
+.\objects\main.o: ..\Libraries\Tools\inc\Num_Convert.h
+.\objects\main.o: ..\Libraries\Devices\inc\LCD1602.h
+.\objects\main.o: ..\Libraries\Devices\inc\LED.h
+.\objects\main.o: ..\Libraries\Devices\inc\KEY.h

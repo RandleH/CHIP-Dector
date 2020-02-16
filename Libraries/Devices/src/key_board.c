@@ -30,6 +30,7 @@ uint8 GET_TestKey(void)
 {
   //return 1 = Button Down
   //return 0 = Button Up
+  systick_delay_ms(1);
   return (!(uint8)((PTA->PDIR>>TEST_KEY)&0x01));
 }
 
@@ -93,7 +94,7 @@ uint8 GET_Keyboard(void)
 {
   uint8 key,letter='$';
   key = (uint8)((PTE->PDIR&0x00000F00)>>8);
-  systick_delay_ms(1);
+  systick_delay(10);
   if(key != ((uint8)((PTE->PDIR&0x00000F00)>>8)))
     return '$';
   PTE->PDDR |= (uint32)((1<<11)|(1<<10)|(1<<9)|(1<<8));
@@ -120,7 +121,7 @@ uint8 GET_Keyboard(void)
   case 0x28:letter = '#';break;// #
   case 0x18:letter = 'D';break;// D
   }
-  systick_delay_ms(100);
+  systick_delay_ms(200);
   PTB->PDDR |= (uint32)((1<<11)|(1<<10)|(1<<9)|(1<<8));
   PTE->PDDR &= (uint32)(~((1<<11)|(1<<10)|(1<<9)|(1<<8)));
   PTB->PDOR |= (uint32)((1<<11)|(1<<10)|(1<<9)|(1<<8));

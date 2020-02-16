@@ -9,10 +9,26 @@
 * COPYRIGHT NOTICE
  Copyright (c) 2019 Randle_H. All rights reserved.
 ----------------------------------------------------------------------------*/
+
 #include "LCD1602.h"
 #include "stdarg.h"
 #include "stdio.h"
-static char sprint_buf[32];
+#ifdef __cplusplus
+extern "C"{
+#endif
+char sprint_buf[32];
+
+const uint8 CHIP_Edge[][8]={
+  {0x00,0x00,0x00,0x1f,0x01,0x01,0x01,0x01},//   `|     Right Up Corner
+  {0x01,0x01,0x01,0x01,0x0f,0x00,0x00,0x00},//   _|     Right Down Corner
+  {0x04,0x04,0x04,0x1f,0x00,0x00,0x00,0x00},//   `      Up Line(Good Pin)
+  {0x00,0x00,0x00,0x00,0x1f,0x04,0x04,0x04},//   _      Down Line(Good Pin)
+  {0x00,0x00,0x00,0x1f,0x10,0x10,0x1c,0x04},//   |`     Left Up Corner
+  {0x04,0x1c,0x10,0x10,0x1f,0x00,0x00,0x00},//   |_     Left Down Corner
+  {0x04,0x15,0x0e,0x1f,0x0a,0x11,0x00,0x00},//          Error Up Pin
+  {0x00,0x00,0x11,0x0a,0x1f,0x0e,0x15,0x04},//          Error Down Pin
+};
+
 void LCD1602_Init(void)
 {
   LCD1602_GPIO_Configuration();
@@ -30,6 +46,14 @@ void LCD1602_Init(void)
   LCD1602_WriteCmd(0x01);  
   systick_delay_ms(5);
   LCD1602_WriteCmd(0x0c);
+}
+
+void LCD1602_ImportGraph(void)
+{
+  for(uint8 cnt=0;cnt<8;cnt++)//Write Chip picture into the CGRAM
+  {
+    LCD1602_DefChar(cnt,CHIP_Edge[cnt]);
+  }
 }
 
 void LCD1602_WriteCmd(uint8 cmd)
@@ -70,7 +94,7 @@ void LCD1602_WriteDat(uint8 data)
   LCD_EN(1);
   systick_delay(50);                    //Very important!
   LCD_EN(0);                            //Do not modify!
-  systick_delay(20);
+  //systick_delay(20);
 }
 
 void LCD1602_GPIO_Configuration(void)
@@ -95,15 +119,18 @@ void LCD1602_GPIO_Configuration(void)
   PTC->PDOR &= ~(uint32)((1<<19)|(1<<15)|(1<<13)|0xff);
 }
 
-void LCD1602_Str(uint8 x,uint8 y,char *str)
+uint8 LCD1602_Str(uint8 x,uint8 y,const char *str)
 {
+  uint8 cursor_pos = x;
   if(y==0)		{LCD1602_WriteCmd(0x80+x);}
   else			{LCD1602_WriteCmd(0xc0+x);}
   while(*str)
   {
     LCD1602_WriteDat(*str);
     str++;
+    cursor_pos++;
   }
+  return cursor_pos;
 }
 
 void LCD1602_Char(uint8 x,uint8 y, char letter)
@@ -111,6 +138,18 @@ void LCD1602_Char(uint8 x,uint8 y, char letter)
   if(y==0)		{LCD1602_WriteCmd(0x80+x);}
   else			{LCD1602_WriteCmd(0xc0+x);}
   LCD1602_WriteDat(letter);
+}
+
+void LCD1602_CleanLine(uint8 x,uint8 y)
+{
+  uint8 cursor_x = x;
+  if(y==0)    {LCD1602_WriteCmd(0x80+x);}
+  else        {LCD1602_WriteCmd(0xc0+x);}
+  while(cursor_x < 16)
+  {
+    LCD1602_WriteDat(' ');
+    cursor_x++;
+  }
 }
 
 void LCD1602_CleanScreen(void)
@@ -171,4 +210,6 @@ void LCD_Print_BIN(uint8 x,uint8 y, unsigned int num)
   }
 }
 
-
+#ifdef __cplusplus
+}
+#endif

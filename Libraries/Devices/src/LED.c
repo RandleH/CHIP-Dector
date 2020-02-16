@@ -20,6 +20,6 @@ void LED_Init(void)
   PORTB->PCR[R_LED] |= PORT_PCR_MUX(1);
   PORTB->PCR[G_LED] |= PORT_PCR_MUX(1);
   PTB->PDDR |= (uint32)((1<<R_LED)|(1<<G_LED));
-  RUN(0);
-  ERR(1);
+  RUN(OFF);
+  ERR(OFF);
 }

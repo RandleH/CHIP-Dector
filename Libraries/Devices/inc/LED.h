@@ -18,6 +18,9 @@
 #define G_LED     20
 #define TEST_LED  28
 
+#define ON  0
+#define OFF 1
+
 #define RUN(x) ((x==0)?(PTB->PDOR&=~(uint32)(1<<G_LED)):(PTB->PDOR|=(uint32)(1<<G_LED)))
 #define ERR(x) ((x==0)?(PTB->PDOR&=~(uint32)(1<<R_LED)):(PTB->PDOR|=(uint32)(1<<R_LED)))
 #define LED(x) ((x==0)?(PTA->PDOR&=~(uint32)(1<<28)):(PTA->PDOR|=(uint32)(1<<28)))
