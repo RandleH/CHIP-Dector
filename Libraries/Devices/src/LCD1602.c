@@ -13,6 +13,7 @@
 #include "LCD1602.h"
 #include "stdarg.h"
 #include "stdio.h"
+#include "string.h"
 #ifdef __cplusplus
 extern "C"{
 #endif
@@ -131,6 +132,19 @@ uint8 LCD1602_Str(uint8 x,uint8 y,const char *str)
     cursor_pos++;
   }
   return cursor_pos;
+}
+
+void LCD1602_Str16(uint8_t y,const char* str)
+{
+  uint8_t cnt = 0;
+  if(strlen(str)%16!=0&&str!=NULL)
+    return;//format is not supported
+  for(cnt=0;cnt<16;cnt++){
+    LCD1602_Char(cnt,y,*str);
+    str++;
+    if(str=='\0')
+      break;
+  }
 }
 
 void LCD1602_Char(uint8 x,uint8 y, char letter)

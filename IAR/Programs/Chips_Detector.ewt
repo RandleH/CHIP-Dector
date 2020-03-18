@@ -2473,11 +2473,17 @@
         <group>
             <name>inc</name>
             <file>
+                <name>$PROJ_DIR$\..\..\Users\mathematics.h</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\..\Libraries\Tools\inc\Num_Convert.h</name>
             </file>
         </group>
         <group>
             <name>src</name>
+            <file>
+                <name>$PROJ_DIR$\..\..\Users\mathematics.c</name>
+            </file>
             <file>
                 <name>$PROJ_DIR$\..\..\Libraries\Tools\src\Num_Convert.c</name>
             </file>

@@ -32,6 +32,7 @@ void LCD1602_WriteDat(uint8 data);
 void LCD1602_WriteCmd(uint8 cmd);
 uint8 LCD1602_CheckBusy(void);
 uint8 LCD1602_Str(uint8 x,uint8 y,const char *str);
+void LCD1602_Str16(uint8_t y,const char* str);
 void LCD1602_Char(uint8 x,uint8 y, char letter);
 void LCD1602_DefChar(uint8 char_index,const uint8* data);
 void LCD_Printf(const char* format,...);

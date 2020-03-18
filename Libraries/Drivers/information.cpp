@@ -18,15 +18,16 @@ const char* Info::toString(Type type)
   	case nand_gate:       str = (char*)"NAND";      break;
   	case nor_gate:        str = (char*)"NOR";       break;
   	case eor_gate:        str = (char*)"EOR";       break;
-  	case encoder:         str = (char*)"ECoder";       break;
-  	case decoder:         str = (char*)"DCoder";       break;
+  	case encoder:         str = (char*)"ECoder";    break;
+  	case decoder:         str = (char*)"DCoder";    break;
   	case flip_flop:       str = (char*)"F-Flop";    break;
   	case comparator:      str = (char*)"CMP";       break;
-  	case multiplexer:     str = (char*)"MPlex";       break;
-  	case demultiplexer:   str = (char*)"De-MPlex";    break;
+  	case multiplexer:     str = (char*)"MPlex";     break;
+  	case demultiplexer:   str = (char*)"De-MPlex";  break;
   	case tri_state:       str = (char*)"Tri State"; break;
   	case shift_reg:       str = (char*)"Shift-Reg"; break;
   	case serial_parallel: str = (char*)"S-P COV";	  break;
+    case counter:         str = (char*)"Counter";   break;
   	default:              str = (char*)"N/A";       break;
   	case unknown:         str = (char*)"Unknown";	  break;
   }
@@ -56,21 +57,13 @@ Index Info::toIndex(Name name)
     case 0x04:  index = IDX__74XX04;break;
     case 0x05:  index = IDX__74XX05;break;
     case 0x08:  index = IDX__74XX08;break;
+    case 0x10:  index = IDX__74XX10;break;
     case 0x09:  index = IDX__74XX09;break;
     case 0x20:  index = IDX__74XX20;break; 
-    /*
-    case 0x21:  index = IDX__74XX21;break;
-    case 0x27:  index = IDX__74XX27;break;
-    case 0x28:  index = IDX__74XX28;break;
-    case 0x30:  index = IDX__74XX30;break;
-    case 0x32:  index = IDX__74XX32;break;
-    case 0x38:  index = IDX__74XX38;break;
-    case 0x51:  index = IDX__74XX51;break;
-    case 0x86:  index = IDX__74XX86;break;
-    case 0x136: index = IDX__74XX136;break;*/
-    
     /* ... */
-    
+    case 0x125: index = IDX__74XX125;break;
+    case 0x164: index = IDX__74XX164;break;
+    case 0x393: index = IDX__74XX393;break;
     default : index = 0xffff;break;
   }
   return index;
@@ -89,6 +82,8 @@ Type Info::toType(Name name)
     case 0x05:
     case 0x08: //__74XX08;
     case 0x09: //__74XX09;
+    case 0x10:
+    case 0x14:
     case 0x20: //__74XX20;
     case 0x21: //__74XX21;
     case 0x27: //__74XX27;
@@ -102,6 +97,12 @@ Type Info::toType(Name name)
                type = logic_gate; break;
     
     /* ... */
+    case 0x164:
+               type = serial_parallel; break;
+    case 0x125:
+               type = tri_state;  break;
+    case 0x393:
+               type = counter;    break;
 
     default:   type = unknown;    break; 
   }
@@ -112,16 +113,30 @@ Type Info::toType(Name name)
 Type Info::toType(Index* index)
 {
   Type type;
-  switch(index[logic_gate])
-  {
-    case 0: break;
-    case 1: type = nand_gate; return type;
-    case 2: type = eor_gate;  return type;
-    case 3: type = nand_gate; return type;
-    case 4: type = not_gate;  return type;
-    case 5: 
-    case 6: type = and_gate;  return type;
-    case 7: type = and_gate;  return type;
+  switch(index[logic_gate]){
+    case IDX__LOGIC_GATE:   break;
+    case IDX__74XX00:  type = nand_gate; return type;
+    case IDX__74XX02:  type = nor_gate;  return type;
+    case IDX__74XX03:  type = nand_gate; return type;
+    case IDX__74XX04: 
+    case IDX__74XX05:  type = not_gate;  return type;
+    case IDX__74XX08: 
+    case IDX__74XX09:  type = and_gate;  return type;
+    case IDX__74XX10:  type = nand_gate; return type;
+    case IDX__74XX14:  type = not_gate;  return type;
+    case IDX__74XX20:  type = and_gate;  return type;
+  }
+  switch(index[serial_parallel]){
+    case IDX__SERIALPARALLEL:break; 
+    case IDX__74XX164: type = serial_parallel;return type;
+  }
+  switch(index[tri_state]){
+    case IDX__TRISTATE:break;
+    case IDX__74XX125: type = tri_state;return type;
+  }
+  switch(index[counter]){
+    case IDX__COUNTER:      break;
+    case IDX__74XX393: type = counter;  return type;
   }
   type = unknown;  return type;
 }
@@ -129,9 +144,8 @@ Type Info::toType(Index* index)
 Name Info::toName(Index* index)
 {
   Name name;
-  switch(index[logic_gate])
-  {
-    case IDX__NULL:    break; //null
+  switch(index[logic_gate]){
+    case IDX__LOGIC_GATE:   break;
     case IDX__74XX00:  name = (char*)"74XX00/03"; return name;
     case IDX__74XX02:  name = (char*)"74XX02";    return name;
     case IDX__74XX03:  name = (char*)"74XX00/03"; return name;
@@ -139,12 +153,26 @@ Name Info::toName(Index* index)
     case IDX__74XX05:  name = (char*)"74XX04/05"; return name;
     case IDX__74XX08:  
     case IDX__74XX09:  name = (char*)"74XX08/09"; return name;
+    case IDX__74XX10:  name = (char*)"74XX10";    return name;
+    case IDX__74XX14:  name = (char*)"74XX14";    return name;
     case IDX__74XX20:  name = (char*)"74XX20";    return name;
   }
-  switch(index[encoder])
-  {
+  switch(index[encoder]){
     case 0:  break;
     case 1:  name = (char*)"74xx";return name;
+  }
+  switch(index[serial_parallel]){
+    case IDX__SERIALPARALLEL: break;
+    case IDX__74XX164:  name = (char*)"74XX164";  return name;
+  }
+  switch(index[tri_state]){
+    case IDX__TRISTATE:break;
+    case IDX__74XX125:  name = (char*)"74XX125";  return name;
+  }
+
+  switch(index[counter]){
+    case IDX__COUNTER:  break;
+    case IDX__74XX393:  name = (char*)"74XX393";  return name;
   }
   name = (char*)"N/A"; return name;
 }
@@ -158,6 +186,8 @@ uint16 Info::getCD____(Name name)
 {
   return this->toNum(name,HEAD_CD);;
 }
+
+
 
 
 

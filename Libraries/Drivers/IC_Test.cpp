@@ -17,6 +17,8 @@
 using namespace std;
 System   $system$;
 
+//==========================================================================================================================//
+
 Detector::Detector():state(__StandBy__),last_state(__Uninitialized__)
 {
   this->tagName.x = 0;
@@ -45,26 +47,35 @@ void Detector::init(void)
   SIM->SCGC5 |= ( SIM_SCGC5_PORTB_MASK
                  |SIM_SCGC5_PORTD_MASK
                  |SIM_SCGC5_PORTE_MASK);
+  SIM->SCGC2 |= ( SIM_SCGC2_DAC0_MASK
+                 |SIM_SCGC2_DAC1_MASK);
   while(cnt--)
   {
     PORTD->PCR[cnt] &= ~(uint32)PORT_PCR_MUX_MASK;
     PORTD->PCR[cnt] |= PORT_PCR_MUX(1); //Alternative 1 (GPIO).
-    PORTD->PCR[cnt] |= (uint32)(1<<6);  //Drive Strength Enable
   }
   cnt = 8;
   while(cnt--)
   {
     PORTE->PCR[cnt] &= ~(uint32)PORT_PCR_MUX_MASK;
     PORTE->PCR[cnt] |= PORT_PCR_MUX(1);
-    PORTE->PCR[cnt] |= (1<<PORT_PCR_PE_SHIFT)|(0<<PORT_PCR_PS_SHIFT);
     PORTB->PCR[cnt] &= ~(uint32)PORT_PCR_MUX_MASK;
     PORTB->PCR[cnt] |= PORT_PCR_MUX(1);
-    PORTE->PCR[cnt] |= (1<<PORT_PCR_PE_SHIFT)|(0<<PORT_PCR_PS_SHIFT);
   }
-  PTB->PDDR &= ~(uint32)(0XFF);
-  PTE->PDDR &= ~(uint32)(0XFF);
-  PTD->PDDR |= (uint32)(0XFFFF);
-  PTD->PDOR  = 0X00;
+  PTB->PDDR &= ~(uint32)(0xff);
+  PTE->PDDR &= ~(uint32)(0xff);
+  PTD->PDDR |= (uint32)(0xffff);
+  PTD->PDOR  = 0x0000;
+
+  DAC0->C0 = DAC1->C0 = (0
+                        |DAC_C0_DACTRGSEL_MASK // Software trigger.
+                        |DAC_C0_DACRFS_MASK    // Use DACREF_2(VDD = 3.3v)
+                        |DAC_C0_DACEN_MASK);   // Enable DAC Module.
+  DAC0->C1 = DAC1->C1 = (0);
+  DAC0->C2 = DAC1->C2 = (0
+                        |DAC_C2_DACBFRP(0));
+  DAC0->DAT[0].DATH = DAC1->DAT[0].DATH = 0;   // Default output voltage: 0.0v
+  DAC0->DAT[0].DATL = DAC1->DAT[0].DATH = 0;
 }
 
 void Detector::main(void)
@@ -76,19 +87,19 @@ void Detector::main(void)
     case __AutoTest__:
                           this->displayTitle();
                           this->displayText();
+                          this->test.reset();
                           this->led(OFF);
                           UPDATE_STATE(this);                 break;
     case __ManTest__:
                           this->displayTitle();
+                          this->test.reset();
                           this->led(OFF);
                           UPDATE_STATE(this);
                           this->scanfName();
                           NEW_STATE(this,__ManTesting__);     break;
     case __AutoTesting__:
-                          this->test.reset();
                           this->test.ioPort();
-                          this->test.findType();
-                          this->test.findName();
+                          this->test.testPort();
                           RECORD_STATE(this);
                           NEW_STATE(this,__ShowResult__);     break;
     case __ShowResult__:
@@ -96,13 +107,13 @@ void Detector::main(void)
                           this->displayType();
                           this->led();
                           UPDATE_STATE(this);                 break;
-    case __ManTesting__:
+    case __ManTesting__:       
                           this->analyzeName();
                           this->test.checkPort();
                           RECORD_STATE(this);
                           NEW_STATE(this,__ShowFig__);        break;
     case __ShowFig__:
-                          this->displayFig();                 
+                          this->displayResult();                 
                           UPDATE_STATE(this);                 break;
     default:return;
   }
@@ -128,6 +139,8 @@ void Detector::displayTitle(void)
 
 void Detector::displayName(void)
 {
+  Info info;
+  this->test.name = info.toName(this->test.index);    // Convert the information
   this->display(this->tagName.x,this->tagName.y,(const char*)this->test.name);
 }
 
@@ -160,7 +173,76 @@ void Detector::displayFig(void)
 
 void Detector::displayResult(void)
 {
-
+  uint8_t i=0,j=0xff;
+  uint8_t m=1,n=0xff;
+  bool page = false,page_last = !page; //false = data sheet, true = truth table
+  uint16_t len=0;
+  __disable_irq();
+  while(!KEY_DETECTED){
+    if(page == false){
+      if(i!=j || page!=page_last){
+        switch(this->test.type){
+          case logic_gate:LCD1602_Str16(0,GATE_INFOs[this->test.index[logic_gate]]()+16*(i*2+0));
+                          LCD1602_Str16(1,GATE_INFOs[this->test.index[logic_gate]]()+16*(i*2+1));
+                          len = strlen(GATE_INFOs[this->test.index[logic_gate]]());break;
+          case tri_state: LCD1602_Str16(0,TRISTATE_INFOs[this->test.index[tri_state]]()+16*(i*2+0));
+                          LCD1602_Str16(1,TRISTATE_INFOs[this->test.index[tri_state]]()+16*(i*2+1));
+                          len = strlen(TRISTATE_INFOs[this->test.index[tri_state]]());break;
+          case serial_parallel:
+                          LCD1602_Str16(0,SP_INFOs[this->test.index[serial_parallel]]()+16*(i*2+0));
+                          LCD1602_Str16(1,SP_INFOs[this->test.index[serial_parallel]]()+16*(i*2+1));
+                          len = strlen(SP_INFOs[this->test.index[serial_parallel]]());break;
+        }
+        if(i==0) this->displayFig();
+        j=i;
+        page_last = page;
+      }
+    }
+    else{
+      if(m!=n || page!=page_last){
+        LCD1602_CleanScreen();
+        for(int i=0;i<this->test.ttb.width;i++){
+          LCD1602_Char(i,0,*(this->test.ttb.ch+i));
+        }
+        for(int j=0;j<this->test.ttb.width;j++){
+          LCD1602_Char(j,1,*(this->test.ttb.ch+m*this->test.ttb.width+j));
+        }
+        n=m;
+        page_last = page;
+      }
+    }
+    if(GET_UpKey()==true){
+      WAIT_UNTIL_FINGER_RELEASED(GET_UpKey());
+      if(page==false){  
+        if(i!=0)  i--;
+      }
+      else{
+        if(m!=1)  m--;
+      }
+    }
+    if(GET_DownKey()==true){
+      WAIT_UNTIL_FINGER_RELEASED(GET_DownKey());
+      if(page==false){
+        if(i<len/(16*2)-1) i++;
+      }
+      else{
+        if(m<this->test.ttb.height-1) m++;
+      }
+    }
+    if(GET_LeftKey()){
+      WAIT_UNTIL_FINGER_RELEASED(GET_LeftKey());
+      page = false;
+    }
+    if(GET_RightKey()){
+      WAIT_UNTIL_FINGER_RELEASED(GET_RightKey());
+      page = true;
+    }
+  }
+  NVIC_SetPriority(PORTE_IRQn, 1U);
+  NVIC_EnableIRQ(PORTE_IRQn);
+  NVIC_SetPriority(PORTA_IRQn, 1U);
+  NVIC_EnableIRQ(PORTA_IRQn);
+  __enable_irq();
 }
 
 void Detector::displayText(void)
@@ -186,7 +268,7 @@ void Detector::led(void)
   run = OFF;err = ON;
   while(cnt--)
   {
-    if(*(this->test.index)!=0)
+    if(*(this->test.index+cnt)!=0)
     {
       run = ON;
       err = OFF;
@@ -262,6 +344,8 @@ void Detector::scanfName(void)
   __enable_irq();
 }
 
+//===========================================================================================================================//
+
 Test::Test(){}
 Test::~Test(){}
 
@@ -274,16 +358,25 @@ void Test::reset(void)
   this->type      = unknown;
   this->name      = (char*)"N/A";
   this->init_flag = true;
+  memset(this->index,0,sizeof(this->index));  // Clear the information
+  memset(this->pin,1,sizeof(this->pin));
+}
+
+void Test::importTruthTable(TruthTable* p)
+{
+  switch(this->type){
+    case logic_gate:GATE_TTBs[this->index[this->type]](p);break;
+    default: ttb__null(p);break;
+  }
 }
 
 bool Test::ioPort(void)
 {
-  uint32 send = 0;
-  uint32 read = 0;
-  uint32 dir  = 0;
+  uint16_t send = 0;
+  uint16_t read = 0;
+  uint16_t dir  = 0;
 
-  for(send=0;send<=0XFFFF;send++)
-  {
+  for(send=0;send<0xffff;send++){
     PTD->PDOR = send;
     systick_delay(10);
     read  = (uint8)(PTB->PDIR);
@@ -293,6 +386,87 @@ bool Test::ioPort(void)
   this->pin_dir = dir;
   this->dir_flag = true;
   return true;
+}
+
+bool Test::testPort(void)
+{
+  bool result = false;
+  if(this->dir_flag == false)
+    return false;
+
+  if(isGate() && result == false){
+    this->type = logic_gate;
+    if(findName() == true){
+      result = true;
+    }
+  }           
+  if(isEncoder() && result == false){
+    this->type = encoder;
+    if(findName() == true){
+      result = true;
+    }
+  }        
+  if(isDecoder() && result == false){
+    this->type = decoder;
+    if(findName() == true){
+      result = true;
+    }
+  }        
+  if(isFlipFlop() && result == false){
+    this->type = flip_flop;
+    if(findName() == true){
+      result = true;
+    }
+  }       
+  if(isComparator() && result == false){
+    this->type = comparator;
+    if(findName() == true){
+      result = true;
+    }
+  }     
+  if(isMultiplexer() && result == false){
+    this->type = multiplexer;
+    if(findName() == true){
+      result = true;
+    }
+  }    
+  if(isDeMultiplexer() && result == false){
+    this->type = demultiplexer;
+    if(findName() == true){
+      result = true;
+    }
+  }   
+  if(isTriState() && result == false){
+    this->type = tri_state;
+    if(findName() == true){
+      result = true;
+    }
+  }       
+  if(isShiftReg() && result == false){
+    this->type = shift_reg;
+    if(findName() == true){
+      result = true;
+    }
+  }       
+  if(isSPConvertor() && result == false){
+    this->type = serial_parallel;
+    if(findName() == true){
+      result = true;
+    }
+  }    
+  if(isCounter() && result == false){
+    this->type = counter;
+    if(findName() == true){
+      result = true;
+    }
+  }        
+  if(result == false)                   
+    this->type = unknown;
+  
+  this->type_flag = true;
+
+  this->importTruthTable(&this->ttb);
+  return result;
 }
 
 bool Test::checkPort(void)
@@ -308,38 +482,20 @@ bool Test::checkPort(void)
     case demultiplexer:   this->checkDeMultiplexer();  isFinished = true;  break;
     case tri_state:       this->checkTriState();       isFinished = true;  break;
     case shift_reg:       this->checkShiftReg();       isFinished = true;  break;
+    case counter:         this->checkCounter();        isFinished = true;  break;
     case serial_parallel: this->checkSPConvertor();    isFinished = true;  break;
     case unknown:         this->checkAll();            isFinished = true;  break;
     default:              isFinished = false;
   }
+  this->importTruthTable(&this->ttb);
   return isFinished;
 }
 
 bool Test::checkGate(void)
 {
   bool isFinished        = true;
-  uint8  cnt             = 0;
-  uint16 read            = 0;
-  const Index  baseIndex = this->index[logic_gate];
-  uint16       shift     = 0;
-  if(baseIndex == 0)
-    isFinished = false;
-  memset(this->pin,1,sizeof(this->pin));
-  
-  while(GATE_KEYs[baseIndex-shift][cnt+1]!='$'){
-    if(GATE_KEYs[baseIndex-shift][cnt+1]=='?'){
-      shift++;
-      cnt = 0;
-      continue;
-    }
-    SEND_WORD(GATE_KEYs[baseIndex-shift][++cnt]);
-    read  = (uint8)(PTB->PDIR&0x000000FF);
-    read |= (PTE->PDIR<<8);
-    for(int i=0;i<SUPPORT_MAX_PINs;i++){
-      if((1<<i)&((read&GATE_ACKs[baseIndex-shift][0])^(GATE_ACKs[baseIndex-shift][cnt]&GATE_ACKs[baseIndex-shift][0])))
-        this->pin[i] = false; // bad pin
-    }
-  }
+  const Index  index = this->index[logic_gate];
+  GATE_TESTs[index](this->pin);
   return isFinished;
 }
 
@@ -349,9 +505,32 @@ bool Test::checkFlipFlop(void){return 0;}
 bool Test::checkComparator(void){return 0;}
 bool Test::checkMultiplexer(void){return 0;}
 bool Test::checkDeMultiplexer(void){return 0;}
-bool Test::checkTriState(void){return 0;}
+
+bool Test::checkCounter(void)
+{
+  bool isFinished        = true;
+  const Index  index = this->index[counter];
+  COUNTER_TESTs[index](this->pin);
+  return isFinished;
+}
+
+bool Test::checkTriState(void)
+{
+  bool isFinished        = true;
+  const Index  index = this->index[tri_state];
+  TRISTATE_TESTs[index](this->pin);
+  return isFinished;
+}
+
 bool Test::checkShiftReg(void){return 0;}
-bool Test::checkSPConvertor(void){return 0;}
+
+bool Test::checkSPConvertor(void)
+{
+  bool isFinished        = true;
+  const Index  index = this->index[serial_parallel];
+  SP_TESTs[index](this->pin);
+  return isFinished;
+}
 
 bool Test::checkAll(void)
 {
@@ -367,34 +546,13 @@ bool Test::checkAll(void)
   return false;
 }
 
-bool Test::findType(void)
-{
-  if(this->dir_flag == false)
-  	return false;
-
-  if(isGate())                this->type = logic_gate;
-  else if(isEncoder())        this->type = encoder;
-  else if(isDecoder())        this->type = decoder;
-  else if(isFlipFlop())       this->type = flip_flop;
-  else if(isComparator())     this->type = comparator;
-  else if(isMultiplexer())    this->type = multiplexer;
-  else if(isDeMultiplexer())  this->type = demultiplexer; 
-  else if(isTriState())       this->type = tri_state;
-  else if(isShiftReg())       this->type = shift_reg;
-  else if(isSPConvertor())    this->type = serial_parallel;
-  else                        this->type = unknown;
-  this->type_flag = true;
-  return true;
-}
 
 bool Test::isGate(void)
 {
   uint8 cnt    = sizeof_IO__GATE();
   bool  isGate = false;
-  while(cnt--)
-  {
-    if(IO_14PIN(this->pin_dir)==IO__GATE[cnt])
-    {
+  while(cnt--){
+    if(IO_14PIN(this->pin_dir)==IO_14PIN(IO__GATE[cnt])){
       isGate = true;
       break;
     }
@@ -408,62 +566,117 @@ bool Test::isFlipFlop(void){return 0;}
 bool Test::isComparator(void){return 0;}
 bool Test::isMultiplexer(void){return 0;}
 bool Test::isDeMultiplexer(void){return 0;}
-bool Test::isTriState(void){return 0;}
 bool Test::isShiftReg(void){return 0;}
-bool Test::isSPConvertor(void){return 0;}
+
+bool Test::isTriState(void)
+{
+  uint8 cnt       = sizeof_IO__TRISTATE();
+  bool  isTriState = false;
+  while(cnt--){
+    if(IO_14PIN(this->pin_dir)==IO_14PIN(IO__TRISTATE[cnt])){
+      isTriState = true;
+      break;
+    }
+  }
+  return isTriState;
+}
+
+
+bool Test::isSPConvertor(void)
+{
+  uint8 cnt       = sizeof_IO__SP();
+  bool  isSerialParallel = false;
+  while(cnt--){
+    if(IO_14PIN(this->pin_dir)==IO_14PIN(IO__SP[cnt])){
+      isSerialParallel = true;
+      break;
+    }
+  }
+  return isSerialParallel;
+}
+
+bool Test::isCounter(void)
+{
+  uint8 cnt       = sizeof_IO__COUNTER();
+  bool  isCounter = false;
+  while(cnt--){
+    if(IO_14PIN(this->pin_dir)==IO_14PIN(IO__COUNTER[cnt])){
+      isCounter = true;
+      break;
+    }
+  }
+  return isCounter;
+}
 
 bool Test::findName(void)
 {
   uint16 index;
-  Info info;
-  if(this->type_flag == false)
-    return false;
+  bool result = true;
 
   memset(this->index,0,sizeof(this->index));  // Clear the information
-  if(this->type==logic_gate)
-  {
-    index = this->searchGate();
-    this->index[logic_gate] = index;          // Load the information
-    this->name = info.toName(this->index);    // Convert the information
-    this->type = info.toType(this->index);
+  switch(this->type){
+    case logic_gate:
+      index = this->searchGate();
+      this->index[logic_gate] = index; 
+      break;
+    case serial_parallel:
+      index = this->searchSP();
+      this->index[serial_parallel] = index;
+      break;
+    case tri_state:
+      index = this->searchTriState();
+      this->index[tri_state] = index;
+      break;
+    case counter:
+      index = this->searchCounter();
+      this->index[counter] = index;
+      break;
   }
-  return true;
+  if(index == NOT_FOUND)
+    result = false;
+  return result;
 }
 
-uint8 Test::searchGate(void)
+uint8_t Test::searchGate(void)
 {
-  uint8_t   cnt   = 0;
-  uint8_t   shift = 0; 
-  uint16_t  read;
-  uint16_t const*  base  = GATE_BASEs+sizeof_GATE_BASEs()-1;
-  while(*base != IDX__NULL)
-  {
-  	while(GATE_KEYs[*(base-shift)][cnt+1]!='$')
-    {
-      if(GATE_KEYs[*(base-shift)][cnt+1]=='?')
-      {
-      	shift++;
-      	cnt = 0;
-      	continue;
-      }
-      cnt++;
-      SEND_WORD(GATE_KEYs[*(base-shift)][cnt]);
-      read  = (uint8)(PTB->PDIR&0x000000FF);
-      read |= (PTE->PDIR<<8);
-      if(  (read&GATE_ACKs[*(base-shift)][0]) != (GATE_ACKs[*(base-shift)][cnt]&GATE_ACKs[*(base-shift)][0])  )
-      {
-        cnt   = 0;
-        base--;
-        shift = 0;
-        break;
-      }
-    }
-    if(cnt != 0)  // Matched logic gate is found!  
-      break;	
+  uint8_t index = sizeof_GATE_TESTs();
+  while(--index){
+    if(GATE_TESTs[index](this->pin)==true)
+      break;
   }
-  return (*base); // Index/Base: 0 is NULL(not found).
+  return index; // Index/Base: 0 is NULL(not found).
 }
 
+uint8_t Test::searchTriState(void)
+{
+  uint8_t index = sizeof_TRISTATE_TESTs();
+  while(--index){
+    if(TRISTATE_TESTs[index](this->pin)==true)
+      break;
+  }
+  return index; // Index/Base: 0 is NULL(not found).
+}
+
+uint8_t Test::searchSP(void)
+{
+  uint8_t index = sizeof_SP_TESTs();
+  while(--index){
+    if(SP_TESTs[index](this->pin)==true)
+      break;
+  }
+  return index; // Index/Base: 0 is NULL(not found).
+}
+
+uint8_t Test::searchCounter(void)
+{
+  uint8_t index = sizeof_COUNTER_TESTs();
+  while(--index){
+    if(COUNTER_TESTs[index](this->pin)==true)
+      break;
+  }
+  return index; // Index/Base: 0 is NULL(not found).
+}
+//===========================================================================================================================//
 
 System::System():mcgout_clk_mhz(100),core_clk_mhz(100),bus_clk_mhz(100)
 {
@@ -482,6 +695,7 @@ void System::init(void)
   LED_Init();
   LCD1602_Init();
   LCD1602_ImportGraph();
+  //srand((unsigned char)time(NULL));//Do not include.If system is not connected to windows,system will halt.
 }
 
 void System::irq_setting(void)
@@ -528,6 +742,8 @@ void System::regDetector(Detector* p)
 {
   this->detector_cur = p;
 }
+
+
 
 void System::mode(SysMode mode)
 {

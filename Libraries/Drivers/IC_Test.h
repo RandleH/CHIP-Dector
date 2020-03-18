@@ -28,6 +28,7 @@
 #define CURRENT_STATE(OBJ)    OBJ->state 
 
 #define SUPPORT_MAX_PINs 16
+#define NOT_FOUND 0
 
 #define SEND_WORD(X) PTD->PDOR = (uint16)(X);systick_delay(100)
 #define READ_WORD    (uint16)(PTB->PDIR)|(PTE->PDIR<<8)
@@ -41,8 +42,12 @@ typedef enum
 {
   logic_gate=0  ,and_gate       ,or_gate      ,not_gate       ,nand_gate      ,nor_gate     ,
   eor_gate      ,encoder        ,decoder      ,flip_flop      ,comparator     ,multiplexer  ,
-  demultiplexer ,tri_state      ,shift_reg    ,serial_parallel,unknown        ,numofType
+  demultiplexer ,tri_state      ,shift_reg    ,serial_parallel,counter        ,unknown      ,numofType
 }Type;
+
+typedef enum{
+  //and_gate,or_gate,not_gate,
+}subType;
 
 typedef enum {standard,debug}SysMode;
 
@@ -60,6 +65,8 @@ private:
   bool   type_flag;
   bool   name_flag;
 
+  void   importTruthTable(TruthTable* p);
+
   bool   isGate(void);
   bool   isEncoder(void);
   bool   isDecoder(void);
@@ -70,6 +77,7 @@ private:
   bool   isTriState(void);
   bool   isShiftReg(void);
   bool   isSPConvertor(void);
+  bool   isCounter(void);
 
   bool   checkGate(void);
   bool   checkEncoder(void);
@@ -80,11 +88,15 @@ private:
   bool   checkDeMultiplexer(void);
   bool   checkTriState(void);
   bool   checkShiftReg(void);
+  bool   checkCounter(void);
   bool   checkSPConvertor(void);
   bool   checkAll(void);
 
-  uint8  searchGate(void);
-  uint8  searchEcoder();
+  uint8_t  searchGate(void);
+  uint8_t  searchEcoder(void);
+  uint8_t  searchTriState(void);
+  uint8_t  searchSP(void);
+  uint8_t  searchCounter(void);
 public:
   Test();
   ~Test();
@@ -92,11 +104,12 @@ public:
   Name   name;
   Type   type;
   Title  title[20];
-  Index  index[18];
+  Index  index[numofType];
+  TruthTable ttb;
   bool   pin[16];
   void   reset();
   bool   ioPort();
-  bool   findType();
+  bool   testPort(void);
   bool   findName(void);
   bool   checkPort(void);
 };

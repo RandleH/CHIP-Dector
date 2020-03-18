@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\settings\Chips_Detector.Debug.general.xcl" --backend -f "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\settings\Chips_Detector.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200316——(真值表)\IAR\Programs\settings\Chips_Detector.Debug.general.xcl" --backend -f "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200316——(真值表)\IAR\Programs\settings\Chips_Detector.Debug.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\settings\Chips_Detector.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200215——(重新开始)\IAR\Programs\settings\Chips_Detector.Debug.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.2\common\bin\cspybat" -f "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200316——(真值表)\IAR\Programs\settings\Chips_Detector.Debug.general.xcl" "--debug_file=%~1" --backend -f "C:\Users\asus\Documents\嵌入式\NXP\MK60DN512\自研发\IC芯片检测器项目重启\20200316——(真值表)\IAR\Programs\settings\Chips_Detector.Debug.driver.xcl" 
 
 @echo off 
 :end

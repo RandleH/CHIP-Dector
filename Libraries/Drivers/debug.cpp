@@ -83,7 +83,7 @@ uint8 GET_Keyboard(void)
 }
 
 
-uint8 GET_TestKey(void)
+bool GET_TestKey(void)
 {
   //return 1 = Button Down
   //return 0 = Button Up

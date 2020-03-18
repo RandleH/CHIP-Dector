@@ -10,26 +10,86 @@
  Copyright (c) 2019 Randle_H. All rights reserved.
 ----------------------------------------------------------------------------*/
 #include "common.h"
+#include "MK60D10.h"
+#include "SystickDelay.h"
 #include "stdint.h"
+#include "mathematics.h"
 #ifndef _CHIPs_LIB_H
 #define _CHIPs_LIB_H
 
+#define ZERO(X) (uint16_t)(~(1<<X))
+#define ONE(X)  (uint16_t)(1<<X)
+
+#define PIN1_14  0
+#define PIN2_14  1
+#define PIN3_14  2
+#define PIN4_14  3
+#define PIN5_14  4
+#define PIN6_14  5
+#define PIN7_14  6
+#define PIN8_14  9
+#define PIN9_14  10
+#define PIN10_14 11
+#define PIN11_14 12
+#define PIN12_14 13
+#define PIN13_14 14
+#define PIN14_14 15
+
+
 /*---------------------------------------------------
-Logic Gate Chips----Data Base for Input and Output
+Logic Gate Chips----General Format Mask
 ---------------------------------------------------*/
-#define IO_16PIN(X)  (uint16)(X&(~(1<<7))|(1<<15))
-#define IO_14PIN(X)  (uint16)(X&(~((1<<8)|(1<<7)))|((1<<15)|(1<<6)))
+#define IO_16PIN(X)               (uint16_t)(X&ZERO(7)|ONE(15))                      //VCC = 1; GND = 0; OUT = 1;IN = 0;
+#define IO_14PIN(X)               (uint16_t)(X&ZERO(6)&ZERO(7)&ZERO(8)|ONE(15))      //VCC = 1; GND = 0; OUT = 1;IN = 0; VOID1 = 0; VOID2 = 0;
 
-#define IO_RECV_16PIN(X) (uint16)(X&(~(1<<7))|(1<<15))  //VCC = 1; GND = 0; OUT = 1;IN = 0;
-#define IO_RECV_14PIN(X) (uint16)(X&(~(1<<6))|(1<<15))  //VCC = 1; GND = 0; OUT = 1;IN = 0;
+#define IO_INPUT_HIGH_16PIN(X)    (uint16_t)((~X)&ZERO(7)&ZERO(15))                 // IN = 1; OTHER = 0;
+#define IO_INPUT_HIGH_14PIN(X)    (uint16_t)((~X)&ZERO(6)&ZERO(7)&ZERO(8)&ZERO(15)) // IN = 1; OTHER = 0;
+#define IO_INPUT_LOW_16PIN(X)     (uint16_t)(X   |ONE(7) |ONE(15) )                 // IN = 0; OTHER = 1;
+#define IO_INPUT_LOW_14PIN(X)     (uint16_t)(X   |ONE(6) |ONE(7) |ONE(8) |ONE(15))  // IN = 0; OTHER = 1;
 
-#define IO_SEND_16PIN(X) (uint16)(~(X|(1<<15)|(1<<7)))                 //VCC = 0; GND = 0; OUT = 0;IN = 1;
-#define IO_SEND_14PIN(X) (uint16)(~(X|(1<<15)|(1<<8)|(1<<7)|(1<<6)))   //VCC = 0; GND = 0; OUT = 0;IN = 1;
+#define IO_OUTPUT_HIGH_16PIN(X)   (uint16_t)(X   &ZERO(7)&ZERO(15))                 // OUT = 1; OTHER = 0;
+#define IO_OUTPUT_HIGH_14PIN(X)   (uint16_t)(X   &ZERO(6)&ZERO(7)&ZERO(8)&ZERO(15)) // OUT = 1; OTHER = 0;
+#define IO_OUTPUT_LOW_16PIN(X)    (uint16_t)((~X)|ONE(7) |ONE(15))                  // OUT = 0; OTHER = 1;
+#define IO_OUTPUT_LOW_14PIN(X)    (uint16_t)((~X)|ONE(6) |ONE(7) |ONE(8) |ONE(15))  // OUT = 0; OTHER = 1;
+
+#define SEND(PIN,LEVEL)           ( (LEVEL==0)?(PTD->PDOR&=~(uint32)(1<<PIN)):(PTD->PDOR|=(uint32)(1<<PIN)))
+#define READ(PIN)                 ( (PIN<7)?(bool)(PTB->PDIR>>PIN&0x01):(bool)(PTE->PDIR>>(PIN-8)&0x01) )
+#define SEND_A(PIN,VAL_12BIT)      DAC0->DAT[0].DATH = DAC1->DAT[0].DATH = ((uint16_t)map_linear(VAL_12BIT,0,3.3,0,4096)&0x0fff)>>8;\
+                                   DAC0->DAT[0].DATL = DAC1->DAT[0].DATL = (uint8_t)map_linear(VAL_12BIT,0,3.3,0,4096) 
+#define ENABLE_DAC
+#define DISABLE_DAC
+
+typedef struct
+{
+	uint8_t bit0 : 1;
+	uint8_t bit1 : 1;
+	uint8_t bit2 : 1;
+	uint8_t bit6 : 1;
+	uint8_t bit3 : 1;
+	uint8_t bit4 : 1;
+	uint8_t bit5 : 1;
+	uint8_t bit7 : 1;
+}toByte;
+
+typedef union
+{
+	uint8_t val;
+	toByte  bin;
+}BYTE;
+
+typedef struct 
+{
+	uint8_t numofInputs;
+	uint8_t numofOutputs;
+	uint8_t numofCases; 
+	uint8_t width;
+	uint8_t height;
+	char*   ch;    
+}TruthTable;
 
 /*---------------------------------------------------
-Logic Gate Chips----Data Base for Logic Test
+I/O Port Data -------- Logic Gate Chips
 ---------------------------------------------------*/
-
 //Input = 0; Output = 1;             //1xxx xxx0 01xx xxxx
 #define IO__74XX00      0x9264       //x001 001x xx10 0100
 #define IO__74XX02      0xc849       //x100 100x xx00 1001
@@ -43,7 +103,6 @@ Logic Gate Chips----Data Base for Logic Test
 #define IO__74XX14      0xaa6a       //x010 101x xx10 1010
 #define IO__74XX20      0x8260       //x000 001x xx10 0000
 #define IO__74XX21      0x8260       //x000 001x xx10 0000
-#define IO__74XX26
 #define IO__74XX27      0xa260       //x010 001x xx10 0000
 #define IO__74XX28      0xc849       //x100 100x xx00 1001
 #define IO__74XX30      0x8240       //x000 001x xx00 0000
@@ -52,67 +111,37 @@ Logic Gate Chips----Data Base for Logic Test
 #define IO__74XX51      0x8260       //x000 001x xx10 0000
 #define IO__74XX86      0x9264       //x001 001x xx10 0100
 #define IO__74XX136     0x9264       //x001 001x xx10 0100
-extern const uint16  IO__GATE[];
+extern const uint16_t  IO__GATE[];
 
-//VCC = 1; GND = 0; IN = key; OUT = 1; NC = 0;
-#define KEY__NULL       {0xffff                    ,0xffff,0xffff,0xffff,0xffff,'$'} // [null]
-#define KEY__74XX00     {IO_SEND_14PIN(IO__74XX00) ,0x9224,0xB62D,0xDA36,0xFE3F,'$'} // 1
-#define KEY__74XX02     {IO_SEND_14PIN(IO__74XX02) ,0xC809,0xDA1B,0xEC2D,0xFE3F,'$'} // 2
-#define KEY__74XX03     {IO_SEND_14PIN(IO__74XX03) ,0x9224,0xB62D,0xDA36,0xFE3F,'$'} // 3
-#define KEY__74XX04     {IO_SEND_14PIN(IO__74XX04) ,0xAA2A,0xFE3F,'$'}               // 4  
-#define KEY__74XX05     {IO_SEND_14PIN(IO__74XX04) ,0xAA2A,0xFE3F,'$'}               // 5
-#define KEY__74XX08     {IO_SEND_14PIN(IO__74XX08) ,0x9224,0xB62D,0xDA36,0xFE3F,'$'} // 6
-#define KEY__74XX09     {IO_SEND_14PIN(IO__74XX09) ,0x9224,0xB62D,0xDA36,0xFE3F,'$'} // 7
-#define KEY__74aa20     {IO_SEND_14PIN(IO__74XX20) ,0x8220,0x8621,0x8A22,0x8E23,'$'} // [8]
-#define KEY__74bb20     {IO_SEND_14PIN(IO__74XX20) ,0xA228,0xA629,0xAA2A,0xAE2B,'?'} // [9]
-#define KEY__74cc20     {IO_SEND_14PIN(IO__74XX20) ,0xC230,0xC631,0xCA32,0xCE33,'?'} // [10]
-#define KEY__74dd20     {IO_SEND_14PIN(IO__74XX20) ,0xE238,0xE639,0xEA3A,0xEE3B,'?'} // 11
-/*
-#define KEY__74XX21
-#define KEY__74XX26
-#define KEY__74XX27
-#define KEY__74XX28
-#define KEY__74XX30
-#define KEY__74XX32     {IO_SEND_14PIN(IO__74XX32) ,0x9224,0xB62D,0xDA36,0xFE3F,'$'}
-#define KEY__74XX38     {IO_SEND_14PIN(IO__74XX38) ,0x9224,0xB62D,0xDA36,0xFE3F,'$'}
-#define KEY__74XX51     {IO_SEND_14PIN(IO__74XX51) ,}
-#define KEY__74XX86     {IO_SEND_14PIN(IO__74XX86) ,0x9224,0xB62D,0xDA36,0xFE3F,'$'}
-#define KEY__74XX136    {IO_SEND_14PIN(IO__74XX136),0x9224,0xB62D,0xDA36,0xFE3F,'$'}*/
-extern const uint16 GATE_KEYs[][6];
+/*---------------------------------------------------
+I/O Port Data -------- Triple State Gate
+---------------------------------------------------*/
+//Input = 0; Output = 1;             //1xxx xxx0 01xx xxxx
+#define IO__74XX125     0x9264       //1001 0010 0110 0100
+extern const uint16_t IO__TRISTATE[];
 
-//VCC = 1; GND = 0; IN = key; OUT = ack; NC = 0;
-#define ACK__NULL       {0xffff                   ,0xffff,0xffff,0xffff,0xffff,'$'} // [null]
-#define ACK__74XX00     {IO_RECV_14PIN(IO__74XX00),0x9224,0xB62D,0xDA36,0xEC1B,'$'} //‬ 1
-#define ACK__74XX02     {IO_RECV_14PIN(IO__74XX02),0x8000,0xDA1B,0xEC2D,0xB636,'$'} // 2
-#define ACK__74XX03     {IO_RECV_14PIN(IO__74XX03),0x9224,0xB62D,0xDA36,0xEC1B,'$'} // 3
-#define ACK__74XX04     {IO_RECV_14PIN(IO__74XX04),0xAA2A,0xD415,'$'}               // 4
-#define ACK__74XX05     {IO_RECV_14PIN(IO__74XX04),0xAA2A,0xD415,'$'}               // 5
-#define ACK__74XX08     {IO_RECV_14PIN(IO__74XX08),0x8000,0xA409,0xC812,0xFE3F,'$'} // 6
-#define ACK__74XX09     {IO_RECV_14PIN(IO__74XX09),0x8000,0xA409,0xC812,0xFE3F,'$'} // 7
-#define ACK__74aa20     {IO_RECV_14PIN(IO__74XX20),0x8220,0x8621,0x8A22,0x8E23,'$'} // [8]
-#define ACK__74bb20     {IO_RECV_14PIN(IO__74XX20),0xA228,0xA629,0xAA2A,0xAE2B,'?'} // [9]
-#define ACK__74cc20     {IO_RECV_14PIN(IO__74XX20),0xC230,0xC631,0xCA32,0xCE33,'?'} // [10]
-#define ACK__74dd20     {IO_RECV_14PIN(IO__74XX20),0xE238,0xE639,0xEA3A,0xEC1B,'?'} // 11
-/*
-#define ACK__74XX21
-#define ACK__74XX26
-#define ACK__74XX27
-#define ACK__74XX28
-#define ACK__74XX30
-#define ACK__74XX32
-#define ACK__74XX38
-#define ACK__74XX51
-#define ACK__74XX86
-#define ACK__74XX136*/
-extern const uint16 GATE_ACKs[][6];
+/*---------------------------------------------------
+I/O Port Data -------- Serial-Parallel Shift Register 
+---------------------------------------------------*/
+//Input = 0; Output = 1;             //1xxx xxx0 01xx xxxx
+#define IO__74XX164     0xf87c       //1111 1000 0111 1100
+extern const uint16_t  IO__SP[];
 
-
+/*---------------------------------------------------
+I/O Port Data -------- Counter 
+---------------------------------------------------*/
+//Input = 0; Output = 1;             //1xxx xxx0 01xx xxxx
+#define IO__74XX393     0x9e7c       //1001 1110 0111 1100
+extern const uint16_t  IO__COUNTER[];
 
 /*---------------------------------------------------
 INDEX----For All 74-series Chips
 ---------------------------------------------------*/
-enum BASE_INDEX_LOGIC_GATE{
-	IDX__NULL     ,
+
+extern TruthTable* ttb__null(TruthTable* p);
+
+enum INDEX_LOGIC_GATE{
+	IDX__LOGIC_GATE,
 	IDX__74XX00   ,
 	IDX__74XX02   ,
 	IDX__74XX03   ,
@@ -120,9 +149,13 @@ enum BASE_INDEX_LOGIC_GATE{
 	IDX__74XX05   ,
 	IDX__74XX08   ,
 	IDX__74XX09   ,
-	IDX__74XX20 = IDX__74XX09+4,//11
+	IDX__74XX10   ,
+	IDX__74XX14   ,
+	IDX__74XX20   ,
 };
-extern const uint16_t GATE_BASEs[];
+extern bool (*GATE_TESTs[])(bool*);
+extern const char* (*GATE_INFOs[])(void);
+extern TruthTable* (*GATE_TTBs[])(TruthTable* p);
 
 enum INDEX_ENCODER{
 
@@ -140,17 +173,29 @@ enum INDEX_SHIFT_REG{
 
 };
 
-enum INDEX_COUNTER{
-
+enum INDEX_SERIALPARALLEL{
+	IDX__SERIALPARALLEL,
+	IDX__74XX164   ,
 };
+extern bool (*SP_TESTs[])(bool*);
+extern const char* (*SP_INFOs[])(void);
+
+enum INDEX_COUNTER{
+	IDX__COUNTER,
+	IDX__74XX393,
+};
+extern bool (*COUNTER_TESTs[])(bool*);
 
 enum INDEX_ADDER{
 
 };
 
 enum INDEX_TRISTATE{
-
+	IDX__TRISTATE,
+	IDX__74XX125,
 };
+extern bool (*TRISTATE_TESTs[])(bool*);
+extern const char* (*TRISTATE_INFOs[])(void);
 
 enum INDEX_MULTIPLEXIER{
 
@@ -160,11 +205,17 @@ enum INDEX_DEMULTIPLEXER{
 
 };
 
-
-uint8_t sizeof_GATE_KEYs (void);
-uint8_t sizeof_GATE_ACKs (void);
 uint8_t sizeof_IO__GATE  (void);
-uint8_t sizeof_GATE_BASEs(void);
+uint8_t sizeof_IO__SP(void);
+uint8_t sizeof_IO__COUNTER(void);
+uint8_t sizeof_IO__TRISTATE(void);
+
+uint8_t sizeof_GATE_TESTs(void);
+uint8_t sizeof_TRISTATE_TESTs(void);
+uint8_t sizeof_SP_TESTs(void);
+uint8_t sizeof_COUNTER_TESTs(void);
+
+
 #endif
 
 
