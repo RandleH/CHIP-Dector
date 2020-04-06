@@ -15,10 +15,10 @@
 
 #define TEST_KEY  8  //PORTA
 
-#define UP_KEY    24 //PORTE
-#define DOWN_KEY  25 //PORTE
-#define LEFT_KEY  26 //PORTE
-#define RIGHT_KEY 27 //PORTE
+#define UP_KEY    16 //PORTB
+#define DOWN_KEY  17 //PORTB
+#define LEFT_KEY  18 //PORTB
+#define RIGHT_KEY 19 //PORTB
 #define USE_INTERRUPT Enable
 #define KEY_DETECTED (uint8)((PTE->PDIR&0x00000F00)>>8)
 #define WAIT_UNTIL_FINGER_RELEASED(func) systick_delay_ms(100);while(func==true)

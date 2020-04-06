@@ -14,15 +14,15 @@
 #ifndef _LED_H
 #define _LED_H
 
-#define R_LED     22
-#define G_LED     20
-#define TEST_LED  28
+#define R_LED     12//PORTC
+#define G_LED     11//PORTC
+#define TEST_LED  28//PORTA
 
 #define ON  0
 #define OFF 1
 
-#define RUN(x) ((x==0)?(PTB->PDOR&=~(uint32)(1<<G_LED)):(PTB->PDOR|=(uint32)(1<<G_LED)))
-#define ERR(x) ((x==0)?(PTB->PDOR&=~(uint32)(1<<R_LED)):(PTB->PDOR|=(uint32)(1<<R_LED)))
-#define LED(x) ((x==0)?(PTA->PDOR&=~(uint32)(1<<28)):(PTA->PDOR|=(uint32)(1<<28)))
+#define RUN(x) ((x==0)?(PTC->PDOR&=~(uint32)(1<<G_LED)):(PTC->PDOR|=(uint32)(1<<G_LED)))
+#define ERR(x) ((x==0)?(PTC->PDOR&=~(uint32)(1<<R_LED)):(PTC->PDOR|=(uint32)(1<<R_LED)))
+#define LED(x) ((x==0)?(PTA->PDOR&=~(uint32)(1<<TEST_LED)):(PTA->PDOR|=(uint32)(1<<TEST_LED)))
 void LED_Init(void);
 #endif

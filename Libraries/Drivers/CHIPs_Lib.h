@@ -1,14 +1,32 @@
-/*--------------------------------------------------------------------------
-* @file         CHIPs_Lib.h
-* @author       Randle_H
-* @version      V2.0.1
-* @date         2019/11/24
-* @Software     IAR 7.7 or MDK 5.17
-* @Target core  MK60DN512VLL10
-* @brief        This file provides keys and acks for chips.
-* COPYRIGHT NOTICE
- Copyright (c) 2019 Randle_H. All rights reserved.
-----------------------------------------------------------------------------*/
+/*
+** ###################################################################
+**     Processors:          MK60DN512VLL10
+**
+**     Compilers:           ARM Compiler
+**                          Freescale C/C++ for Embedded ARM
+**                          GNU C Compiler
+**                          IAR ANSI C/C++ Compiler for ARM
+**
+**     Reference manual:    74 ALL SERIES/ National Semiconductor / 
+**     Version:             rev. 1.1, 2020-02-15
+**
+**     Abstract:
+**         CMSIS Peripheral Access Layer for MK60D10
+**
+**     Copyright (c) 2019 Randle_H. All rights reserved.
+**
+**     github:                 github.com/RandleH
+**     mail:                   RandleH@163.com/1748171073@qq.com
+**
+**     Revisions:
+**     - rev. 1.0 (2019-11-03)
+**         Initial version
+**     - rev. 1.1 (2012-04-13)
+**         Added new #define symbol MCU_MEM_MAP_VERSION_MINOR.
+**         Added new #define symbols <peripheralType>_BASE_PTRS.
+**
+** ###################################################################
+*/
 #include "common.h"
 #include "MK60D10.h"
 #include "SystickDelay.h"
@@ -35,12 +53,17 @@
 #define PIN13_14 14
 #define PIN14_14 15
 
+#define REV_4BIT(X) ((0x0f)&(((X&0x55)<<1|(X>>1)&0x55)&0x33)<<2|(((X&0x55)<<1|(X>>1)&0x55)>>2)&0x33)
+#define REV_8BIT(X) ((REV_4BIT(((X&0xf0)>>4)))|(REV_4BIT((X&0x0f))<<4)) 
 
 /*---------------------------------------------------
 Logic Gate Chips----General Format Mask
 ---------------------------------------------------*/
 #define IO_16PIN(X)               (uint16_t)(X&ZERO(7)|ONE(15))                      //VCC = 1; GND = 0; OUT = 1;IN = 0;
-#define IO_14PIN(X)               (uint16_t)(X&ZERO(6)&ZERO(7)&ZERO(8)|ONE(15))      //VCC = 1; GND = 0; OUT = 1;IN = 0; VOID1 = 0; VOID2 = 0;
+//#define IO_14PIN(X)               (uint16_t)(X&ZERO(6)&ZERO(7)&ZERO(8)|ONE(15))      //VCC = 1; GND = 0; OUT = 1;IN = 0; VOID1 = 0; VOID2 = 0;
+#define IO_14PIN(X)               (uint16_t)((X&0xff00)|REV_8BIT((uint8_t)X))      //VCC = 1; GND = 0; OUT = 1;IN = 0; VOID1 = 0; VOID2 = 0;
+//#define IO_RAW(X)               (uint16_t)(X)
+#define IO_RAW(X)                 (uint16_t)((X&0xff00)|REV_8BIT((uint8_t)X))
 
 #define IO_INPUT_HIGH_16PIN(X)    (uint16_t)((~X)&ZERO(7)&ZERO(15))                 // IN = 1; OTHER = 0;
 #define IO_INPUT_HIGH_14PIN(X)    (uint16_t)((~X)&ZERO(6)&ZERO(7)&ZERO(8)&ZERO(15)) // IN = 1; OTHER = 0;
@@ -84,7 +107,8 @@ typedef struct
 	uint8_t numofCases; 
 	uint8_t width;
 	uint8_t height;
-	char*   ch;    
+	int*   ch;    
+	const char* str[10]; //Only for notes
 }TruthTable;
 
 /*---------------------------------------------------
@@ -137,7 +161,6 @@ extern const uint16_t  IO__COUNTER[];
 /*---------------------------------------------------
 INDEX----For All 74-series Chips
 ---------------------------------------------------*/
-
 extern TruthTable* ttb__null(TruthTable* p);
 
 enum INDEX_LOGIC_GATE{
@@ -179,6 +202,7 @@ enum INDEX_SERIALPARALLEL{
 };
 extern bool (*SP_TESTs[])(bool*);
 extern const char* (*SP_INFOs[])(void);
+extern TruthTable* (*SP_TTBs[])(TruthTable* p);
 
 enum INDEX_COUNTER{
 	IDX__COUNTER,
@@ -196,6 +220,7 @@ enum INDEX_TRISTATE{
 };
 extern bool (*TRISTATE_TESTs[])(bool*);
 extern const char* (*TRISTATE_INFOs[])(void);
+extern TruthTable* (*TRISTATE_TTBs[])(TruthTable* p);
 
 enum INDEX_MULTIPLEXIER{
 
@@ -214,6 +239,45 @@ uint8_t sizeof_GATE_TESTs(void);
 uint8_t sizeof_TRISTATE_TESTs(void);
 uint8_t sizeof_SP_TESTs(void);
 uint8_t sizeof_COUNTER_TESTs(void);
+
+/*---------------------------------------------------
+Chip Info Data -------- Logic Gate
+---------------------------------------------------*/
+//                     [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
+#define INFO__74LS00  "7400            NAND            VCC:5.0  VIH:2.0VIL:0.8      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      "
+#define INFO__74HC00
+#define INFO__74LS02  "7402            OR              VCC:5.0  VIH:2.0VIL:0.7      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      "
+#define INFO__74HC02
+#define INFO__74LS03  "7403            NAND            VCC:5.0  VIH:2.0VIL:0.7      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      "
+#define INFO__74HC03
+#define INFO__74LS04  "7404            NOT             VCC:5.0  VIH:2.0VIL:0.8      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[4:15]     TL~H:[4:15] [ns]       End                      "
+#define INFO__74HC04
+#define INFO__74LS05  "7405            NOT             VCC:5.0  VIH:2.0VIL:0.8      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[4:15]     TL~H:[4:15] [ns]       End                      "
+#define INFO__74HC05
+#define INFO__74LS08  "7408            AND             VCC:5.0  VIH:2.0VIL:0.7      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      "
+#define INFO__74HC08
+#define INFO__74LS09  "7409            AND             VCC:5.0  VIH:2.0VIL:0.7      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      "
+#define INFO__74HC09
+#define INFO__74LS10  "7410            NAND            VCC:5.0  VIH:2.0VIL:0.8      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[4:15]     TL~H:[4:15] [ns]       End                      "
+#define INFO__74HC10
+#define INFO__74LS14  "7414            <NOT>           VCC:5.0  Vt+:1.6Vt-:0.8      [V]It+:0.14It-:0.18IOS:20~100  [mA]IIH:20   IIL:400II@7v:100   [uA]TH~L:[10:33]    TL~H:[8:25] [ns]       End                      " 
+#define INFO__74HC14
+#define INFO__74LS20  "7420            AND             VCC:5.0  VIH:2.0VIL:0.8      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[4:15]     TL~H:[4:15] [ns]       End                      "
+#define INFO__74HC20
+
+/*---------------------------------------------------
+Chip Info Data -------- Triple State Gate
+---------------------------------------------------*/
+//                     [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
+#define INFO__74LS125 "74125           Tri-S           Vcc:5.0  Vih:2.0Vil:0.7      [V]Ioh:2.6 Iol:24.0Ios:20~100  [mA]Iozh:20  Iozl:20Iih:20      [uA]Iil:0.4   Ii:0.1Icc:11~20   [mA]Th~l:[:22]      Tl~h:[:21]  [ns]Tz~h:[:35]      Th~z:[:20]  [ns]Tz~l:[:40]      Tl~z:[:20]  [ns]       End                      "
+#define INFO__74HC125
+
+/*---------------------------------------------------
+Chip Info Data -------- Serial-Parallel Shift Register
+---------------------------------------------------*/
+//                     [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
+#define INFO__74LS164 "74164            SI-PO           8-Bit Sin-Pout  Shift Register Vcc:5.0  Vih:2.0Vil:0.8      [V]Ioh:0.4  Iol:8.0Ios:20~100  [mA]Iil:0.4   Ii:0.1Icc:16~27   [mA]Trel:30     Th:5Tclk:20     [ns]Tclear:20       Tsu:17      [ns]       End                      " 
+#define INFO__74HC164
 
 
 #endif

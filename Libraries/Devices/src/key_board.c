@@ -14,7 +14,7 @@
 char buf[10];
 void KEYs_Init(void)
 {
-  SIM->SCGC5 |= (SIM_SCGC5_PORTA_MASK|SIM_SCGC5_PORTE_MASK);         //Enable the PHB Clock
+  SIM->SCGC5 |= (SIM_SCGC5_PORTA_MASK|SIM_SCGC5_PORTB_MASK);         //Enable the PHB Clock
   PORTA->PCR[TEST_KEY] &= ~(uint32)PORT_PCR_MUX_MASK;
   PORTA->PCR[TEST_KEY] |= PORT_PCR_MUX(1);
   PTA->PDDR &= ~(uint32)(1<<TEST_KEY);          //Direction: Input
@@ -24,15 +24,15 @@ void KEYs_Init(void)
   NVIC_EnableIRQ(PORTA_IRQn);
   __enable_irq();
 #endif
-  PORTE->PCR[UP_KEY]   &= ~(uint32)PORT_PCR_MUX_MASK;
-  PORTE->PCR[UP_KEY]   |= PORT_PCR_MUX(1);
-  PORTE->PCR[DOWN_KEY] &= ~(uint32)PORT_PCR_MUX_MASK;
-  PORTE->PCR[DOWN_KEY] |= PORT_PCR_MUX(1);
-  PORTE->PCR[LEFT_KEY]   &= ~(uint32)PORT_PCR_MUX_MASK;
-  PORTE->PCR[LEFT_KEY]   |= PORT_PCR_MUX(1);
-  PORTE->PCR[RIGHT_KEY] &= ~(uint32)PORT_PCR_MUX_MASK;
-  PORTE->PCR[RIGHT_KEY] |= PORT_PCR_MUX(1);
-  PTE->PDDR &= ~(uint32)((1<<UP_KEY)|(1<<DOWN_KEY)|(LEFT_KEY)|(RIGHT_KEY)); //Direction: Input
+  PORTB->PCR[UP_KEY]   &= ~(uint32)PORT_PCR_MUX_MASK;
+  PORTB->PCR[UP_KEY]   |= PORT_PCR_MUX(1);
+  PORTB->PCR[DOWN_KEY] &= ~(uint32)PORT_PCR_MUX_MASK;
+  PORTB->PCR[DOWN_KEY] |= PORT_PCR_MUX(1);
+  PORTB->PCR[LEFT_KEY]   &= ~(uint32)PORT_PCR_MUX_MASK;
+  PORTB->PCR[LEFT_KEY]   |= PORT_PCR_MUX(1);
+  PORTB->PCR[RIGHT_KEY] &= ~(uint32)PORT_PCR_MUX_MASK;
+  PORTB->PCR[RIGHT_KEY] |= PORT_PCR_MUX(1);
+  PTB->PDDR &= ~(uint32)((1<<UP_KEY)|(1<<DOWN_KEY)|(LEFT_KEY)|(RIGHT_KEY)); //Direction: Input
 }
 
 bool GET_TestKey(void)
@@ -46,25 +46,25 @@ bool GET_TestKey(void)
 bool GET_UpKey(void)
 {
   systick_delay_ms(1);
-  return (!(uint8_t)((PTE->PDIR>>UP_KEY)&0x01));
+  return (!(uint8_t)((PTB->PDIR>>UP_KEY)&0x01));
 }
 
 bool GET_DownKey(void)
 {
   systick_delay_ms(1);
-  return (!(uint8_t)((PTE->PDIR>>DOWN_KEY)&0x01));
+  return (!(uint8_t)((PTB->PDIR>>DOWN_KEY)&0x01));
 }
 
 bool GET_LeftKey(void)
 {
   systick_delay_ms(1);
-  return (!(uint8_t)((PTE->PDIR>>LEFT_KEY)&0x01));
+  return (!(uint8_t)((PTB->PDIR>>LEFT_KEY)&0x01));
 }
 
 bool GET_RightKey(void)
 {
   systick_delay_ms(1);
-  return (!(uint8_t)((PTE->PDIR>>RIGHT_KEY)&0x01));
+  return (!(uint8_t)((PTB->PDIR>>RIGHT_KEY)&0x01));
 }
 /*
     |——————————————|

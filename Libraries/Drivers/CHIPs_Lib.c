@@ -1,14 +1,32 @@
-/*--------------------------------------------------------------------------
-* @file         CHIPs_Lib.c
-* @author       Randle_H
-* @version      V2.0.1
-* @date         2019/11/24
-* @Software     IAR 7.7 or MDK 5.17
-* @Target core  MK60DN512VLL10
-* @brief        This file provides keys and acks for chips.
-* COPYRIGHT NOTICE
- Copyright (c) 2019 Randle_H. All rights reserved.
-----------------------------------------------------------------------------*/
+/*
+** ###################################################################
+**     Processors:          MK60DN512VLL10
+**
+**     Compilers:           ARM Compiler
+**                          Freescale C/C++ for Embedded ARM
+**                          GNU C Compiler
+**                          IAR ANSI C/C++ Compiler for ARM
+**
+**     Reference manual:    74 ALL SERIES/ National Semiconductor / 
+**     Version:             rev. 1.1, 2020-02-15
+**
+**     Abstract:
+**         CMSIS Peripheral Access Layer for MK60D10
+**
+**     Copyright (c) 2019 Randle_H. All rights reserved.
+**
+**     github:                 github.com/RandleH
+**     mail:                   RandleH@163.com/1748171073@qq.com
+**
+**     Revisions:
+**     - rev. 1.0 (2019-11-03)
+**         Initial version
+**     - rev. 1.1 (2012-04-13)
+**         Added new #define symbol MCU_MEM_MAP_VERSION_MINOR.
+**         Added new #define symbols <peripheralType>_BASE_PTRS.
+**
+** ###################################################################
+*/
 #include "CHIPs_Lib.h"
 #include "stdlib.h"
 
@@ -78,6 +96,8 @@ bool is__74xx08(bool* p)
 {
   bool result = true;
   BYTE vector = {.val = 4};
+  SEND(PIN14_14,1);SEND(PIN7_14,0);
+  systick_delay(10);
   while(vector.val--){
     SEND(0 ,vector.bin.bit0); SEND(1, vector.bin.bit1);
     SEND(3 ,vector.bin.bit0); SEND(4, vector.bin.bit1);
@@ -268,6 +288,8 @@ bool is__74xx393(bool* p)
   BYTE vector    = {.val = 0};
   const bool clk = 0;
   const uint8_t clear = rand()%16; 
+  SEND(PIN14_14,1);SEND(PIN7_14,0);
+  systick_delay(10);
   SEND(0 ,clk);SEND(14,clk);
   SEND(1 ,0);SEND(13,0);
   systick_delay(100);
@@ -388,71 +410,46 @@ uint8_t sizeof_COUNTER_TESTs(void) {return sizeof(COUNTER_TESTs) / sizeof(*COUNT
 uint8_t sizeof_SP_TESTs(void)      {return sizeof(SP_TESTs)      / sizeof(*SP_TESTs);}
 
 //GATE_INFOs==================================================================================================================//
-const char* info__GATE(void)
-{return "NULL";}
-
-const char* info__74xx00(void)
-{return "7400             NAND           VCC:5.0  VIH:2.0VIL:0.8      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      ";}
-//       [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
-const char* info__74xx02(void)
-{return "7402             OR             VCC:5.0  VIH:2.0VIL:0.7      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      ";}
-//       [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
-const char* info__74xx03(void)
-{return "7403             NAND           VCC:5.0  VIH:2.0VIL:0.7      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      ";}
-//       [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
-const char* info__74xx04(void)
-{return "7404             NOT            VCC:5.0  VIH:2.0VIL:0.8      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[4:15]     TL~H:[4:15] [ns]       End                      ";}
-//       [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
-const char* info__74xx05(void)
-{return "7405             NOT            VCC:5.0  VIH:2.0VIL:0.8      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[4:15]     TL~H:[4:15] [ns]       End                      ";}
-//       [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
-const char* info__74xx08(void)
-{return "7408             AND            VCC:5.0  VIH:2.0VIL:0.7      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      ";}
-//       [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
-const char* info__74xx09(void)
-{return "7409             AND            VCC:5.0  VIH:2.0VIL:0.7      [V]IOH:0.4  IOL:8.0IOS:20~100  [mA]IIH:20   IIL:360II@7v:100   [uA]TH~L:[6:18]     TL~H:[5:18] [ns]       End                      ";}
-//       [      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
+const char* info__GATE(void)       {return "NULL";}
+const char* info__74LS00(void)     {return INFO__74LS00;}
+const char* info__74LS02(void)     {return INFO__74LS02;}
+const char* info__74LS03(void)     {return INFO__74LS03;}
+const char* info__74LS04(void)     {return INFO__74LS04;}
+const char* info__74LS05(void)     {return INFO__74LS05;}
+const char* info__74LS08(void)     {return INFO__74LS08;}
+const char* info__74LS09(void)     {return INFO__74LS09;}
+const char* info__74LS10(void)     {return INFO__74LS10;}
+const char* info__74LS14(void)     {return INFO__74LS14;}
+const char* info__74LS20(void)     {return INFO__74LS20;}
 const char* (*GATE_INFOs[])(void) = {
   info__GATE,
-  info__74xx00,
-  info__74xx02,
-  info__74xx03,
-  info__74xx04,
-  info__74xx05,
-  info__74xx08,
-  info__74xx09,
+  info__74LS00,
+  info__74LS02,
+  info__74LS03,
+  info__74LS04,
+  info__74LS05,
+  info__74LS08,
+  info__74LS09,
+  info__74LS10,
+  info__74LS14,
+  info__74LS20,
 };
 
 //TRISTATE_INFOs==================================================================================================================//
-const char* info__TRISTATE(void)
-{return "NULL";}
-//     16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
-const char* info__74LS125(void)
-{return "\
-74125            Tri-S          Vcc:5.0  Vih:2.0Vil:0.7      [V]Ioh:2.6 Iol:24.0Ios:20~100  [mA]Iozh:20  Iozl:20Iih:20      [uA]\
-Iil:0.4   Ii:0.1Icc:11~20   [mA]Th~l:[:22]      Tl~h:[:21]  [ns]Tz~h:[:35]      Th~z:[:20]  [ns]Tz~l:[:40]      Tl~z:[:20]  [ns]\
-       End                      ";}
-//     16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
+const char* info__TRISTATE(void)   {return "NULL";}
+const char* info__74LS125(void)    {return INFO__74LS125;}
 const char* (*TRISTATE_INFOs[])(void) = {
   info__TRISTATE,
   info__74LS125,
 };
 
 //SP_INFOs==================================================================================================================//
-const char* info__SP(void)
-{return "NULL";}
-//     16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
-const char* info__74LS164(void)
-{return "\
-74164            SI-PO           8-Bit Sin-Pout  Shift Register Vcc:5.0  Vih:2.0Vil:0.8      [V]Ioh:0.4  Iol:8.0Ios:20~100  [mA]\
-Iil:0.4   Ii:0.1Icc:16~27   [mA]Trel:30     Th:5Tclk:20     [ns]Tclear:20       Tsu:17      [ns]       End                      \
-";}
-//     16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ][      16      ]
+const char* info__SP(void)         {return "NULL";}
+const char* info__74LS164(void)    {return INFO__74LS164;}
 const char* (*SP_INFOs[])(void) = {
   info__SP,
   info__74LS164,
 };
-
 
 //GATE_TRUETHTABLEs==================================================================================================================//
 TruthTable* ttb__null(TruthTable* p)
@@ -473,7 +470,7 @@ TruthTable* ttb__74xx00(TruthTable* p)
   p->numofCases   = (1<<p->numofInputs);
   p->width = p->numofInputs+p->numofOutputs;
   p->height = p->numofCases+1;
-  p->ch = (char*)malloc(p->height*p->width*sizeof(char));
+  p->ch = (int*)malloc(p->height*p->width*sizeof(char));
   *(p->ch+0)  = 'A'; *(p->ch+1)  = 'B';*(p->ch+2)  = 'Y';
   *(p->ch+3)  = 'L'; *(p->ch+4)  = 'L';*(p->ch+5)  = 'H';  
   *(p->ch+6)  = 'L'; *(p->ch+7)  = 'H';*(p->ch+8)  = 'H';  
@@ -489,7 +486,7 @@ TruthTable* ttb__74xx02(TruthTable* p)
   p->numofCases   = (1<<p->numofInputs);
   p->width = p->numofInputs+p->numofOutputs;
   p->height = p->numofCases+1;
-  p->ch = (char*)malloc(p->height*p->width*sizeof(char));
+  p->ch = (int*)malloc(p->height*p->width*sizeof(char));
   *(p->ch+0)  = 'A'; *(p->ch+1)  = 'B';*(p->ch+2)  = 'Y';
   *(p->ch+3)  = 'L'; *(p->ch+4)  = 'L';*(p->ch+5)  = 'H';  
   *(p->ch+6)  = 'L'; *(p->ch+7)  = 'H';*(p->ch+8)  = 'L';  
@@ -507,7 +504,7 @@ TruthTable* ttb__74xx04(TruthTable* p)
   p->numofCases   = (1<<p->numofInputs);
   p->width = p->numofInputs+p->numofOutputs;
   p->height = p->numofCases+1;
-  p->ch = (char*)malloc(p->height*p->width*sizeof(char));
+  p->ch = (int*)malloc(p->height*p->width*sizeof(char));
   *(p->ch+0)  = 'A'; *(p->ch+1)  = 'Y';
   *(p->ch+2)  = 'L'; *(p->ch+3)  = 'H';  
   *(p->ch+4)  = 'H'; *(p->ch+5)  = 'L';  
@@ -523,7 +520,7 @@ TruthTable* ttb__74xx08(TruthTable* p)
   p->numofCases   = (1<<p->numofInputs);
   p->width = p->numofInputs+p->numofOutputs;
   p->height = p->numofCases+1;
-  p->ch = (char*)malloc(p->height*p->width*sizeof(char));
+  p->ch = (int*)malloc(p->height*p->width*sizeof(char));
   *(p->ch+0)  = 'A'; *(p->ch+1)  = 'B';*(p->ch+2)  = 'Y';
   *(p->ch+3)  = 'L'; *(p->ch+4)  = 'L';*(p->ch+5)  = 'L';  
   *(p->ch+6)  = 'L'; *(p->ch+7)  = 'H';*(p->ch+8)  = 'L';  
@@ -534,6 +531,53 @@ TruthTable* ttb__74xx08(TruthTable* p)
 
 TruthTable* ttb__74xx09(TruthTable* p){return ttb__74xx08(p);}
 
+TruthTable* ttb__74xx10(TruthTable* p)
+{
+  p->numofInputs  = 3;
+  p->numofOutputs = 1;
+  p->numofCases   = 4;
+  p->width = p->numofInputs+p->numofOutputs;
+  p->height = p->numofCases+1;
+  p->ch = (int*)malloc(p->height*p->width*sizeof(char));
+  *(p->ch+0)  = 'A';*(p->ch+1)  = 'B';*(p->ch+2)  = 'C';*(p->ch+3)  = 'Y';
+  *(p->ch+4)  = 'X';*(p->ch+5)  = 'X';*(p->ch+6)  = 'L';*(p->ch+7)  = 'H';  
+  *(p->ch+8)  = 'X';*(p->ch+9)  = 'L';*(p->ch+10) = 'X';*(p->ch+11) = 'H';  
+  *(p->ch+12) = 'L';*(p->ch+13) = 'X';*(p->ch+14) = 'X';*(p->ch+15) = 'H';
+  *(p->ch+16) = 'H';*(p->ch+17) = 'H';*(p->ch+18) = 'H';*(p->ch+19) = 'L';
+  return p;
+}
+
+TruthTable* ttb__74xx14(TruthTable* p)
+{
+  p->numofInputs  = 1;
+  p->numofOutputs = 1;
+  p->numofCases   = 2;
+  p->width = p->numofInputs+p->numofOutputs;
+  p->height = p->numofCases+1;
+  p->ch = (int*)malloc(p->height*p->width*sizeof(char));
+  *(p->ch+ 0) = 'A';*(p->ch+ 1) = 'Y';
+  *(p->ch+ 2) = 'L';*(p->ch+ 3) = 'H';
+  *(p->ch+ 4) = 'H';*(p->ch+ 5) = 'L';
+  return p;
+}
+
+TruthTable* ttb__74xx20(TruthTable* p)
+{
+  p->numofInputs  = 4;
+  p->numofOutputs = 1;
+  p->numofCases   = 5;
+  p->width = p->numofInputs+p->numofOutputs;
+  p->height = p->numofCases+1;
+  p->ch = (int*)malloc(p->height*p->width*sizeof(char));
+  *(p->ch+ 0) = 'A';*(p->ch+ 1) = 'B';*(p->ch+ 2) = 'C';*(p->ch+ 3) = 'D';*(p->ch+ 4) = 'Y';
+  *(p->ch+ 5) = 'X';*(p->ch+ 6) = 'X';*(p->ch+ 7) = 'X';*(p->ch+ 8) = 'L';*(p->ch+ 9) = 'H';
+  *(p->ch+10) = 'X';*(p->ch+11) = 'X';*(p->ch+12) = 'L';*(p->ch+13) = 'X';*(p->ch+14) = 'H';
+  *(p->ch+15) = 'X';*(p->ch+16) = 'L';*(p->ch+17) = 'X';*(p->ch+18) = 'X';*(p->ch+19) = 'H';
+  *(p->ch+20) = 'L';*(p->ch+21) = 'X';*(p->ch+22) = 'X';*(p->ch+23) = 'X';*(p->ch+24) = 'H';
+  *(p->ch+25) = 'H';*(p->ch+26) = 'H';*(p->ch+27) = 'H';*(p->ch+28) = 'H';*(p->ch+29) = 'L';
+  return p;
+}
+
 TruthTable* (*GATE_TTBs[])(TruthTable* p) = {
   ttb__null,
   ttb__74xx00,
@@ -543,4 +587,59 @@ TruthTable* (*GATE_TTBs[])(TruthTable* p) = {
   ttb__74xx05,
   ttb__74xx08,
   ttb__74xx09,
+  ttb__74xx10,
+  ttb__74xx14,
+  ttb__74xx20,
+};
+
+//TRISTATE_TRUETHTABLEs==================================================================================================================//
+TruthTable* ttb__74xx125(TruthTable* p)
+{
+  p->numofInputs  = 2;
+  p->numofOutputs = 1;
+  p->numofCases   = 3;
+  p->width = p->numofInputs+p->numofOutputs;
+  p->height = p->numofCases+1;
+  p->ch = (int*)malloc(p->height*p->width*sizeof(char));
+  *(p->ch+ 0) = 'A';*(p->ch+ 1) = 'E';*(p->ch+ 2) = 'Y';
+  *(p->ch+ 3) = 'L';*(p->ch+ 4) = 'L';*(p->ch+ 5) = 'L';
+  *(p->ch+ 6) = 'H';*(p->ch+ 7) = 'L';*(p->ch+ 8) = 'H';
+  *(p->ch+ 9) = 'X';*(p->ch+10) = 'H';*(p->ch+11) = 'Z';
+  return p;
+}
+
+TruthTable* (*TRISTATE_TTBs[])(TruthTable* p) = {
+  ttb__null,
+  ttb__74xx125,
+};
+
+//SP_TRUETHTABLEs==================================================================================================================//
+TruthTable* ttb__74xx164(TruthTable* p)
+{
+  p->numofInputs  = 4;
+  p->numofOutputs = 8;
+  p->numofCases   = 5;
+  p->width = 1;
+  p->height = 6;
+  p->ch = (int*)malloc(p->height*p->width*sizeof(char));
+  *(p->ch+ 0) = 0;
+  *(p->ch+ 1) = -1;
+  *(p->ch+ 2) = -2;
+  *(p->ch+ 3) = -3;
+  *(p->ch+ 4) = -4;
+  *(p->ch+ 5) = -5;
+
+
+  p->str[0] = "CE  CK AB D[a:h]";
+  p->str[1] = "L   X  XX LL...L";
+  p->str[2] = "H   L  XX ab...h";
+  p->str[3] = "H   UP HH Ha...g";
+  p->str[4] = "H   UP LX La...g";
+  p->str[5] = "H   UP XL La...g";
+  return p;
+}
+
+TruthTable* (*SP_TTBs[])(TruthTable* p) = {
+  ttb__null,
+  ttb__74xx164,
 };

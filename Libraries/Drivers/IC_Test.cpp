@@ -47,13 +47,13 @@ void Detector::init(void)
   SIM->SCGC5 |= ( SIM_SCGC5_PORTB_MASK
                  |SIM_SCGC5_PORTD_MASK
                  |SIM_SCGC5_PORTE_MASK);
-  SIM->SCGC2 |= ( SIM_SCGC2_DAC0_MASK
-                 |SIM_SCGC2_DAC1_MASK);
   while(cnt--)
   {
     PORTD->PCR[cnt] &= ~(uint32)PORT_PCR_MUX_MASK;
     PORTD->PCR[cnt] |= PORT_PCR_MUX(1); //Alternative 1 (GPIO).
   }
+  PTD->PDDR |= (uint32)(0xffff);
+
   cnt = 8;
   while(cnt--)
   {
@@ -64,9 +64,9 @@ void Detector::init(void)
   }
   PTB->PDDR &= ~(uint32)(0xff);
   PTE->PDDR &= ~(uint32)(0xff);
-  PTD->PDDR |= (uint32)(0xffff);
-  PTD->PDOR  = 0x0000;
-
+  /*
+  SIM->SCGC2 |= ( SIM_SCGC2_DAC0_MASK
+                 |SIM_SCGC2_DAC1_MASK);
   DAC0->C0 = DAC1->C0 = (0
                         |DAC_C0_DACTRGSEL_MASK // Software trigger.
                         |DAC_C0_DACRFS_MASK    // Use DACREF_2(VDD = 3.3v)
@@ -75,7 +75,7 @@ void Detector::init(void)
   DAC0->C2 = DAC1->C2 = (0
                         |DAC_C2_DACBFRP(0));
   DAC0->DAT[0].DATH = DAC1->DAT[0].DATH = 0;   // Default output voltage: 0.0v
-  DAC0->DAT[0].DATL = DAC1->DAT[0].DATH = 0;
+  DAC0->DAT[0].DATL = DAC1->DAT[0].DATH = 0;*/
 }
 
 void Detector::main(void)
@@ -117,7 +117,6 @@ void Detector::main(void)
                           UPDATE_STATE(this);                 break;
     default:return;
   }
-  
 }
 
 void Detector::analyzeName(void)
@@ -202,10 +201,16 @@ void Detector::displayResult(void)
       if(m!=n || page!=page_last){
         LCD1602_CleanScreen();
         for(int i=0;i<this->test.ttb.width;i++){
-          LCD1602_Char(i,0,*(this->test.ttb.ch+i));
+          if(*(this->test.ttb.ch+i)>0)
+            LCD1602_Char(i,0,*(this->test.ttb.ch+i));
+          else
+            LCD1602_Str(i,0,this->test.ttb.str[-*(this->test.ttb.ch+i)]);
         }
         for(int j=0;j<this->test.ttb.width;j++){
-          LCD1602_Char(j,1,*(this->test.ttb.ch+m*this->test.ttb.width+j));
+          if(*(this->test.ttb.ch+j)>0)
+            LCD1602_Char(j,1,*(this->test.ttb.ch+m*this->test.ttb.width+j));
+          else
+            LCD1602_Str(j,1,this->test.ttb.str[-*(this->test.ttb.ch+m*this->test.ttb.width+j)]);
         }
         n=m;
         page_last = page;
@@ -365,7 +370,9 @@ void Test::reset(void)
 void Test::importTruthTable(TruthTable* p)
 {
   switch(this->type){
-    case logic_gate:GATE_TTBs[this->index[this->type]](p);break;
+    case logic_gate: GATE_TTBs[this->index[this->type]](p);break;
+    case tri_state:  TRISTATE_TTBs[this->index[this->type]](p);break;
+    case serial_parallel: SP_TTBs[this->index[this->type]](p);break;
     default: ttb__null(p);break;
   }
 }
@@ -375,13 +382,14 @@ bool Test::ioPort(void)
   uint16_t send = 0;
   uint16_t read = 0;
   uint16_t dir  = 0;
-
+  PTD->PDOR |= 0x8000;
   for(send=0;send<0xffff;send++){
-    PTD->PDOR = send;
-    systick_delay(10);
-    read  = (uint8)(PTB->PDIR);
-    read |= (PTE->PDIR<<8);
-    dir  |= send^read;
+    PTD->PDOR = IO_14PIN(send);
+    systick_delay(1000);
+    read  = (uint8_t)(PTB->PDIR);
+    read |= (uint16_t)(PTE->PDIR<<8);
+    dir  |= IO_14PIN(send)^read;
+    asm("NOP");
   }
   this->pin_dir = dir;
   this->dir_flag = true;
@@ -472,22 +480,29 @@ bool Test::testPort(void)
 bool Test::checkPort(void)
 {
   bool isFinished = false;
-  switch(this->type){
-    case logic_gate:      this->checkGate();           isFinished = true;  break;
-    case encoder:         this->checkEncoder();        isFinished = true;  break;
-    case decoder:         this->checkDecoder();        isFinished = true;  break;
-    case flip_flop:       this->checkFlipFlop();       isFinished = true;  break;
-    case comparator:      this->checkComparator();     isFinished = true;  break;
-    case multiplexer:     this->checkMultiplexer();    isFinished = true;  break;
-    case demultiplexer:   this->checkDeMultiplexer();  isFinished = true;  break;
-    case tri_state:       this->checkTriState();       isFinished = true;  break;
-    case shift_reg:       this->checkShiftReg();       isFinished = true;  break;
-    case counter:         this->checkCounter();        isFinished = true;  break;
-    case serial_parallel: this->checkSPConvertor();    isFinished = true;  break;
-    case unknown:         this->checkAll();            isFinished = true;  break;
-    default:              isFinished = false;
+  if(this->index[this->type]==0xffff){
+    this->index[this->type] = 0;
+    ttb__null(&this->ttb);
+    isFinished = true;
   }
-  this->importTruthTable(&this->ttb);
+  else{
+    switch(this->type){
+      case logic_gate:      this->checkGate();           isFinished = true;  break;
+      case encoder:         this->checkEncoder();        isFinished = true;  break;
+      case decoder:         this->checkDecoder();        isFinished = true;  break;
+      case flip_flop:       this->checkFlipFlop();       isFinished = true;  break;
+      case comparator:      this->checkComparator();     isFinished = true;  break;
+      case multiplexer:     this->checkMultiplexer();    isFinished = true;  break;
+      case demultiplexer:   this->checkDeMultiplexer();  isFinished = true;  break;
+      case tri_state:       this->checkTriState();       isFinished = true;  break;
+      case shift_reg:       this->checkShiftReg();       isFinished = true;  break;
+      case counter:         this->checkCounter();        isFinished = true;  break;
+      case serial_parallel: this->checkSPConvertor();    isFinished = true;  break;
+      case unknown:         this->checkAll();            isFinished = true;  break;
+      default:              isFinished = false;
+    }
+    this->importTruthTable(&this->ttb);
+  }
   return isFinished;
 }
 
@@ -743,7 +758,20 @@ void System::regDetector(Detector* p)
   this->detector_cur = p;
 }
 
-
+void System::selfLoopBack(Detector* p)
+{
+  uint16_t send,read,result=0;
+  p->init();
+  for(send=0;send<0xffff;send++){
+    PTD->PDOR = (uint32_t)IO_RAW(send);
+    systick_delay(1000);
+    read  = (uint8_t)(PTB->PDIR);
+    read |= (uint16_t)(PTE->PDIR<<8);
+    result  |= send^read;
+  }
+  if(result != 0)
+    while(1);
+}
 
 void System::mode(SysMode mode)
 {

@@ -57,8 +57,9 @@ Index Info::toIndex(Name name)
     case 0x04:  index = IDX__74XX04;break;
     case 0x05:  index = IDX__74XX05;break;
     case 0x08:  index = IDX__74XX08;break;
-    case 0x10:  index = IDX__74XX10;break;
     case 0x09:  index = IDX__74XX09;break;
+    case 0x10:  index = IDX__74XX10;break;
+    case 0x14:  index = IDX__74XX14;break;
     case 0x20:  index = IDX__74XX20;break; 
     /* ... */
     case 0x125: index = IDX__74XX125;break;

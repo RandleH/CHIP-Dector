@@ -168,6 +168,7 @@ public:
   void   getClock();
   void   irq_setting(void);
   void   mode(SysMode mode);
+  void   selfLoopBack(Detector* p);
 private:
   uint32 mcgout_clk_mhz;
   uint32 core_clk_mhz;
